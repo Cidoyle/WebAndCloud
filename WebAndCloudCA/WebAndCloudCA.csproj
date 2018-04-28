@@ -89,6 +89,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\facebook-icon.png" />
+    <Content Include="Content\Images\instagram-icon.png" />
+    <Content Include="Content\Images\location-icon.png" />
+    <Content Include="Content\Images\mail-icon.png" />
+    <Content Include="Content\Images\phone-icon.png" />
+    <Content Include="Content\Images\twitter-icon.png" />
     <Content Include="Content\Styles.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -145,7 +151,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50124</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

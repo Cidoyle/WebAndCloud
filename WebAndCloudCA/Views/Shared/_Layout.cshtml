@@ -4,37 +4,66 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />    
+    @*<script src="~/Scripts/modernizr-2.6.2.js"></script>*@
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <header>
+        <div class="line1">
+            <div id="homelogo">
+                <a href="home.html">
+                    <div>
+                        <h1>Get Cosy</h1>
+                        <h3>Irish Hostels</h3>
+                    </div>
+                </a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
+            <div id="socialbox">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="~/Content/Images/facebook-icon.png" alt="facebook">
+                </a>
+                <a href="https://twitter.com" alt="twitter" target="_blank">
+                    <img src="~/Content/Images/twitter-icon.png" alt="twitter">
+                </a>
+                <a href="https://www.instagram.com" alt="instagram" target="_blank">
+                    <img src="~/Content/Images/instagram-icon.png" alt="instagram">
+                </a>
+                </div>
+            </div>
+    </header>
+    <nav class="mainnav line2">
+        <ul class="container">
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="attractions.html">Attractions</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="testimonials_.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="mainimage">
+        <img src="images/galway.jpg" alt="Galway">
+    </div>
+
+    <main class="container main">
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="line1">
+            <div class="footerdiv1 rightborder">
+                <a href="https://goo.gl/maps/q3aqhC9E4jD2" target="_blank"><img src="~/Content/Images/location-icon.png" alt="location">Gillian's B&amp;B, Lough Atalia Rd, Galway</a>
+            </div>
+            <div class="footerdiv1 rightborder">
+                <a href="tel:0035391162119"><img src="~/Content/Images/phone-icon.png" alt="phone">+353 91 162119</a>
+            </div>
+            <div class="footerdiv1">
+                <a href="mailto:info@gilliansbb.ie" target="_blank"><img src="~/Content/Images/mail-icon.png" alt="email">info@getcosy.ie</a>
             </div>
         </div>
-    </div>
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+        <div class="line2 footerdiv2">
+            <div>&copy @DateTime.Now.Year Get Cosy</div>
+            <div><a href="sitemap.html">Sitemap</a></div>
+        </div>
+    </footer>
 </body>
 </html>

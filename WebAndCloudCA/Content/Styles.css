@@ -1,2 +1,155 @@
 ﻿body {
+    max-width: 1520px;
+    margin: 0;
+    padding: 0;
+    font-family: garamond, Helvetica, Arial, sans serif;
+}
+
+
+/*Header / Navigation*/
+
+.container {
+    width: 70%;
+    margin: auto;
+    padding: 0;
+}
+
+header footer {
+    margin: 0;
+    padding: 0;
+}
+
+.line1 {
+    border-top: 10px solid #BBAE7B;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: #353535;
+}
+
+.line2 {
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: #747373;
+}
+
+#homelogo {
+    margin: auto;
+    padding: 20px 0;
+    display: block;
+    position: relative;
+    width: 300px;
+    text-align: center;
+}
+
+header h1 {
+    color: #FFFFFF;
+    margin: 0;
+    padding-bottom: 0;
+    font-size: 35px;
+    letter-spacing: 10px;
+}
+
+header h3 {
+    color: #FFFFFF;
+    font-style: italic;
+    margin: 0;
+    padding-top: 0;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+header a {
+    text-decoration: none;
+}
+
+#socialbox {
+    padding: 0 20px 0 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 45px;
+    display: block;
+    width: 180px;
+}
+
+#socialbox img {
+    margin: 0 10px 0 0;
+    padding-right: 10px;
+    width: 35px;
+    height: 35px;
+}
+
+/*Main Navigation*/
+
+.mainnav {
+    display: block;
+    padding: 0 80px;
+    font-size: 17px;
+}
+
+.mainnav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainnav li {
+    list-style-type: none;
+    padding: 20px 10px;
+}
+
+.mainnav a {
+    margin: 0px 0px 0px 0px;
+    height: 100%;
+    text-decoration: none;
+    float: left;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.mainnav li:hover {
+    background-color: #353535;
+    color: #BBAE7B;
+}
+
+/*Footer*/
+
+footer {
+    color: #FFFFFF;
+    text-align: center;
+    clear: both;
+    margin-top: 70px;
+}
+
+.footerdiv1 {
+    display: inline-block;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px 0;
+}
+
+.footerdiv1 img {
+    display: inline;
+    width: 20px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.footerdiv1 a {
+    text-decoration: none;
+}
+
+.footerdiv2 {
+    padding: 10px 0;
+}
+
+.rightborder {
+    border-right: 2px solid #BBAE7B;
+}
+
+footer a {
+    color: #FFFFFF;
 }
