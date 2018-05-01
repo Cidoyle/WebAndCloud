@@ -1,7 +1,44 @@
-﻿
+﻿@model WebAndCloudCA.Models.Hostel
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/Content/Styles.css" type="text/css" />
+</head>
+<body>
+    <div id="main">
+        @*/Home/Index*@
+        <form action='@Url.Action("Index","Home")' method="post">
+
+            @*To Do: Create dropdown list for Counties & No. of Guests. CSS for search*@
+            <p class="center">
+                <input type="text" name="txtFirst" placeholder="Where do you want to go?" />
+            </p>
+            <p class="center">
+                <label class="label">Check In</label>
+                <input type="date" name="txtCheckin" />
+            </p>
+            <p class="center">
+                <label class="label">Check Out</label>
+                <input type="date" name="txtCheckOut" />
+            </p>
+            <p class="center">
+                <label class="label">Guests</label>
+                <input type="text" name="txtGuests" value="1-10" />
+            </p>
+            <p class="center">
+                <input id="Submit1" type="submit" value="Search" />
+            </p>
+
+        </form>
+    </div>
+</body>
+</html>
+
 
