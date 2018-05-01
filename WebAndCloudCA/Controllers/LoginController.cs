@@ -6,13 +6,12 @@ using System.Web.Mvc;
 
 namespace WebAndCloudCA.Controllers
 {
-    public class AccountController : Controller
+    public class LoginController : Controller
     {
-        // GET: Account
+        // GET: Login
         public ActionResult Index()
         {
             return View();
         }
-
     }
 }

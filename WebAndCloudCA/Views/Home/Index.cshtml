@@ -1,4 +1,5 @@
 ﻿@model WebAndCloudCA.Models.Hostel
+    
 @{
     ViewBag.Title = "Index";
 }
@@ -16,23 +17,24 @@
         @*/Home/Index*@
         <form action='@Url.Action("Index","Home")' method="post">
 
-            @*To Do: Create dropdown list for Counties & No. of Guests. CSS for search*@
-            <p class="center">
-                <input type="text" name="txtFirst" placeholder="Where do you want to go?" />
+            @*To Do: Create dropdown list for No. of Guests. CSS for search*@
+            <p class="search">
+                <label class="label">Where do you want to go? </label>
+                @Html.EnumDropDownListFor(c => c.CountyList)
             </p>
-            <p class="center">
-                <label class="label">Check In</label>
+            <p class="search">
+                <label class="label">Check In </label>
                 <input type="date" name="txtCheckin" />
             </p>
-            <p class="center">
-                <label class="label">Check Out</label>
+            <p class="search">
+                <label class="label">Check Out </label>
                 <input type="date" name="txtCheckOut" />
             </p>
-            <p class="center">
-                <label class="label">Guests</label>
+            <p class="search">
+                <label class="label">Guests </label>
                 <input type="text" name="txtGuests" value="1-10" />
             </p>
-            <p class="center">
+            <p class="search">
                 <input id="Submit1" type="submit" value="Search" />
             </p>
 

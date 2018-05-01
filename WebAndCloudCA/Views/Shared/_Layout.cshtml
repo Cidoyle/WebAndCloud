@@ -33,37 +33,40 @@
     </header>
     <nav class="mainnav line2">
         <ul class="container">
-            <li><a href="rooms.html">Rooms</a></li>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("About Us", "Index", "About")</li>
+            <li>@Html.ActionLink("Hostels", "Index", "Hostels")</li>
             <li><a href="attractions.html">Attractions</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="testimonials_.html">Testimonials</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            @*<li><a href="faq.html">FAQ</a></li>*@
+            @*<li><a href="testimonials_.html">Testimonials</a></li>*@
+            @*<li><a href="contact.html">Contact Us</a></li>*@
+            <li>@Html.ActionLink("Login", "Index", "Login")</li>
         </ul>
-    </nav>
-    <div class="mainimage">
-        <img src="images/galway.jpg" alt="Galway">
-    </div>
+            </nav>
+            <div class="mainimage">
+                <img src="images/galway.jpg" alt="Galway">
+            </div>
 
-    <main class="container main">
-        @RenderBody()
-    </main>
+            <main class="container main">
+                @RenderBody()
+            </main>
 
-    <footer>
-        <div class="line1">
-            <div class="footerdiv1 rightborder">
-                <a href="https://goo.gl/maps/q3aqhC9E4jD2" target="_blank"><img src="~/Content/Images/location-icon.png" alt="location">Gillian's B&amp;B, Lough Atalia Rd, Galway</a>
-            </div>
-            <div class="footerdiv1 rightborder">
-                <a href="tel:0035391162119"><img src="~/Content/Images/phone-icon.png" alt="phone">+353 91 162119</a>
-            </div>
-            <div class="footerdiv1">
-                <a href="mailto:info@gilliansbb.ie" target="_blank"><img src="~/Content/Images/mail-icon.png" alt="email">info@getcosy.ie</a>
-            </div>
-        </div>
-        <div class="line2 footerdiv2">
-            <div>&copy @DateTime.Now.Year Get Cosy</div>
-            <div><a href="sitemap.html">Sitemap</a></div>
-        </div>
-    </footer>
-</body>
-</html>
+            <footer>
+                <div class="line1">
+                    <div class="footerdiv1 rightborder">
+                        <a href="https://goo.gl/maps/q3aqhC9E4jD2" target="_blank"><img src="~/Content/Images/location-icon.png" alt="location">Gillian's B&amp;B, Lough Atalia Rd, Galway</a>
+                    </div>
+                    <div class="footerdiv1 rightborder">
+                        <a href="tel:0035391162119"><img src="~/Content/Images/phone-icon.png" alt="phone">+353 91 162119</a>
+                    </div>
+                    <div class="footerdiv1">
+                        <a href="mailto:info@gilliansbb.ie" target="_blank"><img src="~/Content/Images/mail-icon.png" alt="email">info@getcosy.ie</a>
+                    </div>
+                </div>
+                <div class="line2 footerdiv2">
+                    <div>&copy @DateTime.Now.Year Get Cosy</div>
+                    <div><a href="sitemap.html">Sitemap</a></div>
+                </div>
+            </footer>
+        </body>
+        </html>

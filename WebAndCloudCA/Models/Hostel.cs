@@ -9,7 +9,7 @@ namespace WebAndCloudCA.Models
     {
         public int HostelId { get; set; }
         public string HostelName { get; set; }
-        public County County { get; set; }
+        public County CountyList { get; set; }
         public string PhoneNo { get; set; }
     }
 }
