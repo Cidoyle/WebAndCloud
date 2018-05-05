@@ -135,7 +135,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Content\WebandCloud CA Database ER Diagram.pdf" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Hostels\Index.cshtml" />
     <Content Include="Views\Hostels\Rooms.cshtml" />
