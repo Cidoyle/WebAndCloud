@@ -9,6 +9,9 @@ namespace WebAndCloudCA.Models
     public class Feedback
     {
         public int FeedbackId { get; set; }
+
+        [Display(Name ="Topic")]
+        [Required]
         public FeedbackTopic FeedbackTopic { get; set; }
         public string Description { get; set; }
        
