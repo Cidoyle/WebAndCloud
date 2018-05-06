@@ -111,9 +111,9 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AttractionsController.cs" />
+    <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HostelsController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -138,8 +138,8 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Hostels\Index.cshtml" />
     <Content Include="Views\Hostels\Rooms.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Attractions\Index.cshtml" />
+    <Content Include="Views\Guest\Registration.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

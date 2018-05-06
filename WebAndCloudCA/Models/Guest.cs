@@ -8,14 +8,15 @@ namespace WebAndCloudCA.Models
 {
     public class Guest
     {
+        [Display(Name="Guest Id")]
         public int GuestId { get; set; }
 
         [Display(Name ="First Name")]
-        [Required]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "First name is required")]
         public string FirstName { get; set; }
 
         [Display(Name = "Last Name")]
-        [Required]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Last name is required")]
         public string LastName { get; set; }
 
         public string Name
@@ -25,9 +26,21 @@ namespace WebAndCloudCA.Models
                 return string.Format($"{FirstName} {LastName}");
             }
         }
-        
-        [Required]
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Valid email address is required")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Password is required")]
+        [DataType(DataType.Password)]
+        [MinLength(8, ErrorMessage ="Password must have at least 8 characters")]
+        public string Password { get; set; }
+
+        [Display(Name="Confirm Password")]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage ="Password does not match, please re-enter")]
+        public string ConfirmPassword { get; set; }
 
         [Display(Name = "Phone Number")]
         [Required]
