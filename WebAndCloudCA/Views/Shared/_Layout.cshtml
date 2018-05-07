@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />    
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src=@Url.Content("~/Scripts/jquery-1.10.2.js")></script>
+    <script type="text/javascript" src=@Url.Content("~/Scripts/MyJavaScript.js")></script>
 </head>
 <body>
     <header>
@@ -43,11 +45,14 @@
             <li>@Html.ActionLink("Login", "Login", "Guest")</li>
         </ul>
     </nav>
-    <div class="mainimage">
-        <img src="~/Content/Slides/a_ries_connemara.jpg" alt="Galway Landscape">       
-    </div>
-
-    
+    <div class="mainimage" id="slideShowImg">
+        <div><img src="~/Content/Slides/a_ries_connemara.jpg" alt="Galway Landscape"></div>
+        <div><img src="~/Content/Slides/Cliffs-of-Moher-main.jpg" alt="Cliffs of Moher"></div>
+        <div><img src="~/Content/Slides/galway.jpg" alt="Galway"></div>
+        <div><img src="~/Content/Slides/hotel_main.jpg" alt="Castle"></div>
+        <div><img src="~/Content/Slides/pine-island-connemara-galway.jpg" alt="Pine Island"></div>
+        <div><img src="~/Content/Slides/visitGalway_main.jpg" alt="Visit Galway"></div>
+    </div>    
 
     <main class="container main">
         @RenderBody()

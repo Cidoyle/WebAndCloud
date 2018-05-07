@@ -1,6 +1,6 @@
 ﻿@model WebAndCloudCA.Models.Guest
 <link href="~/Content/styles.css" rel="stylesheet" type="text/css" />
-<script src="~/Scripts/MyJavaScript.js"></script>
+<script type="text/javascript" src=@Url.Content("~/Scripts/MyJavaScript.js")></script>
 
 @{
     ViewBag.Title = "Registration";
@@ -45,7 +45,7 @@
             <div>
                 @Html.LabelFor(model => model.Email)
                 <div>
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "textbox", @id = "emailVal" } })
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "textbox" } })
                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                 </div>
             </div>
