@@ -1,5 +1,6 @@
 ﻿@model WebAndCloudCA.Models.Guest
 <link href="~/Content/styles.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/MyJavaScript.js"></script>
 
 @{
     ViewBag.Title = "Registration";
@@ -9,11 +10,21 @@
 
 <panel class="reg_form">
 
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
+        @*NOTE:Complete when Database Created*@
+        @*@Html.AntiForgeryToken();
+                    @if (ViewBag.Message != null)
+                    {
+                        <div>
+                        @ViewBag.Message
+                    </div>
+            }*@
         <div>
+
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div>
                 @Html.LabelFor(model => model.FirstName)
@@ -27,14 +38,14 @@
                 @Html.LabelFor(model => model.LastName)
                 <div>
                     @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "textbox" } })
-                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" }) 
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div>
                 @Html.LabelFor(model => model.Email)
                 <div>
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "textbox" } })
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "textbox", @id = "emailVal" } })
                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -74,5 +85,5 @@
 
 
 <div>
-    @Html.ActionLink("Back to List", "Registration")
+    @Html.ActionLink("Login", "Login")
 </div>

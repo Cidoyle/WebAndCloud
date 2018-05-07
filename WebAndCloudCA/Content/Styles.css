@@ -154,10 +154,30 @@ footer a {
     color: #FFFFFF;
 }
 
+/*Main*/
+
+.mainimage {
+    margin: 0;
+    padding: 0;
+}
+
+    .mainimage img {
+        width: 100%;
+    }
+
+.headline {
+    margin-bottom: 40px;
+    margin-top: 50px;
+    padding: 8px 0;
+    border: none;
+    text-align: center;
+    color: #FFFFFF;
+}
+
 /* Registration*/
 
 .reg_form {
-    width: 50%;
+    width: 100%;
     display: block;
     margin: 70px auto 50px 0;
     padding: 0;
@@ -166,13 +186,12 @@ footer a {
 }
 
 .textbox {
-    width: 100%;
+    width: 40%;
     padding: 12px;
     border: 1px solid #747373;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 25px;
+    margin: 6px 20px 25px 0;    
 }
 
 .submit {
@@ -190,22 +209,7 @@ footer a {
     font-weight: inherit;
 }
 
-/*Main*/
-
-.mainimage {
-    margin: 0;
-    padding: 0;
+.text-danger {
+    color: #FF0000;
 }
 
-.mainimage img {
-    width: 100%;
-}
-
-.headline {
-    margin-bottom: 40px;
-    margin-top: 50px;
-    padding: 8px 0;
-    border: none;
-    text-align: center;
-    color: #FFFFFF;
-}
