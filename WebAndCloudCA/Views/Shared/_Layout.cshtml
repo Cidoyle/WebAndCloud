@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />    
-    @*<script src="~/Scripts/modernizr-2.6.2.js"></script>*@
 </head>
 <body>
     <header>
@@ -28,8 +27,8 @@
                 <a href="https://www.instagram.com" alt="instagram" target="_blank">
                     <img src="~/Content/Images/instagram-icon.png" alt="instagram">
                 </a>
-                </div>
             </div>
+        </div>
     </header>
     <nav class="mainnav line2">
         <ul class="container">
@@ -42,31 +41,33 @@
             @*<li><a href="contact.html">Contact Us</a></li>*@
             <li>@Html.ActionLink("Register", "Registration", "Guest")</li>
         </ul>
-            </nav>
-            <div class="mainimage">
-                <img src="images/galway.jpg" alt="Galway">
+    </nav>
+    <div class="mainimage">
+        <img src="~/Content/Slides/a_ries_connemara.jpg" alt="Galway Landscape">       
+    </div>
+
+    
+
+    <main class="container main">
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="line1">
+            <div class="footerdiv1 rightborder">
+                <a href="https://goo.gl/maps/q3aqhC9E4jD2" target="_blank"><img src="~/Content/Images/location-icon.png" alt="location">Get Cosy, Lough Atalia Rd, Galway</a>
             </div>
-
-            <main class="container main">
-                @RenderBody()
-            </main>
-
-            <footer>
-                <div class="line1">
-                    <div class="footerdiv1 rightborder">
-                        <a href="https://goo.gl/maps/q3aqhC9E4jD2" target="_blank"><img src="~/Content/Images/location-icon.png" alt="location">Gillian's B&amp;B, Lough Atalia Rd, Galway</a>
-                    </div>
-                    <div class="footerdiv1 rightborder">
-                        <a href="tel:0035391162119"><img src="~/Content/Images/phone-icon.png" alt="phone">+353 91 162119</a>
-                    </div>
-                    <div class="footerdiv1">
-                        <a href="mailto:info@gilliansbb.ie" target="_blank"><img src="~/Content/Images/mail-icon.png" alt="email">info@getcosy.ie</a>
-                    </div>
-                </div>
-                <div class="line2 footerdiv2">
-                    <div>&copy @DateTime.Now.Year Get Cosy</div>
-                    <div><a href="sitemap.html">Sitemap</a></div>
-                </div>
-            </footer>
-        </body>
+            <div class="footerdiv1 rightborder">
+                <a href="tel:0035391162119"><img src="~/Content/Images/phone-icon.png" alt="phone">+353 91 162119</a>
+            </div>
+            <div class="footerdiv1">
+                <a href="mailto:info@gilliansbb.ie" target="_blank"><img src="~/Content/Images/mail-icon.png" alt="email">info@getcosy.ie</a>
+            </div>
+        </div>
+        <div class="line2 footerdiv2">
+            <div>&copy @DateTime.Now.Year Get Cosy</div>
+            <div><a href="sitemap.html">Sitemap</a></div>
+        </div>
+    </footer>
+</body>
         </html>
