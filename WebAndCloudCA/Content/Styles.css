@@ -161,9 +161,9 @@ footer a {
     padding: 0;
 }
 
-    .mainimage img {
-        width: 100%;
-    }
+.mainimage img {
+    width: 100%;
+}
 
 .headline {
     margin-bottom: 40px;
@@ -176,8 +176,21 @@ footer a {
 
 /* Registration*/
 
+.column {
+    display: flex;
+}
+
+.col_left {
+    margin-left: 10%;
+    border-right: 3px solid #BBAE7B;
+}
+
+.col_right {
+    margin-left: 10%;
+}
+
 .reg_form {
-    width: 100%;
+    width: 50%;
     display: block;
     margin: 70px auto 50px 0;
     padding: 0;
@@ -186,7 +199,7 @@ footer a {
 }
 
 .textbox {
-    width: 40%;
+    width: 90%;
     padding: 12px;
     border: 1px solid #747373;
     border-radius: 4px;

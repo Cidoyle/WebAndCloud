@@ -10,7 +10,8 @@
     }
 }
 
-$(document).ready(function()
+
+$(document).ready(function ()
 {
     $("#slideShowImg > div:gt(0)").hide();
 setInterval(function()

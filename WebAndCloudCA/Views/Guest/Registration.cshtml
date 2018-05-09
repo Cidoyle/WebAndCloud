@@ -1,5 +1,6 @@
 ﻿@model WebAndCloudCA.Models.Guest
-<link href="~/Content/styles.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src=@Url.Content("~/Scripts/jquery-1.10.2.js")></script>
 <script type="text/javascript" src=@Url.Content("~/Scripts/MyJavaScript.js")></script>
 
 @{
@@ -7,82 +8,117 @@
 }
 
 <h1 class="line1 headline">Register New Account</h1>
+<section class="column">
 
-<panel class="reg_form">
+    <panel class="reg_form col_left">
 
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+            @*NOTE:Complete when Database Created*@
+            @*@Html.AntiForgeryToken();
+                        @if (ViewBag.Message != null)
+                        {
+                            <div>
+                            @ViewBag.Message
+                        </div>
+                }*@
+            <div>
 
-        @*NOTE:Complete when Database Created*@
-        @*@Html.AntiForgeryToken();
-                    @if (ViewBag.Message != null)
-                    {
-                        <div>
-                        @ViewBag.Message
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div>
+                    @Html.LabelFor(model => model.FirstName)
+                    <div>
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "textbox" } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                     </div>
-            }*@
-        <div>
+                </div>
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div>
-                @Html.LabelFor(model => model.FirstName)
                 <div>
-                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "textbox" } })
-                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.LastName)
+                    <div>
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "textbox" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Email)
+                    <div>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "textbox" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Password)
+                    <div>
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "textbox" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.ConfirmPassword)
+                    <div>
+                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "textbox" } })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.PhoneNo)
+                    <div>
+                        @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @class = "textbox" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <input type="submit" value="Create Account" class="submit" />
+                    </div>
                 </div>
             </div>
+        }
+    </panel>
 
-            <div>
-                @Html.LabelFor(model => model.LastName)
+    <panel class="reg_form">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="col_right">
+                
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email)
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "textbox" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
                 <div>
-                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "textbox" } })
-                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.Password)
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "textbox" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <input type="submit" value="Sign In" class="submit" />
+                    </div>
                 </div>
             </div>
+        }
+    </panel>
 
-            <div>
-                @Html.LabelFor(model => model.Email)
-                <div>
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "textbox" } })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div>
-                @Html.LabelFor(model => model.Password)
-                <div>
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "textbox" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div>
-                @Html.LabelFor(model => model.ConfirmPassword)
-                <div>
-                    @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "textbox" } })
-                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div>
-                @Html.LabelFor(model => model.PhoneNo)
-                <div>
-                    @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @class = "textbox" } })
-                    @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div>
-                <div>
-                    <input type="submit" value="Submit Details" class="submit" />
-                </div>
-            </div>
-        </div>
-    }
-</panel>
-
+</section>
 
 <div>
     @Html.ActionLink("Login", "Login")
