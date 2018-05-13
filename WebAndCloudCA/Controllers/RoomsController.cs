@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace WebAndCloudCA.Controllers
 {
-    public class HostelsController : Controller
+    public class RoomsController : Controller
     {
-        // GET: Hostels
+        // GET: Rooms
         public ActionResult Index()
         {
             return View();

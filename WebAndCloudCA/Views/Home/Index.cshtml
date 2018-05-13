@@ -1,4 +1,4 @@
-﻿@model WebAndCloudCA.Models.Hostel
+﻿@model WebAndCloudCA.Models.Room
     
 @{
     ViewBag.Title = "Index";
@@ -20,7 +20,7 @@
             @*To Do: Create dropdown list for No. of Guests. CSS for search*@
             <p class="search">
                 <label class="label">Where do you want to go? </label>
-                @Html.EnumDropDownListFor(h => h.CountyList)
+                @Html.EnumDropDownListFor(h => h.CountyList, "Select County", new { @class = "form-control" })
             </p>
             <p class="search">
                 <label class="label">Check In </label>
