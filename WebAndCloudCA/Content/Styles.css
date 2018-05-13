@@ -176,43 +176,61 @@ footer a {
 
 /* Registration*/
 
-.column {
-    display: flex;
+.reg_display {
+    display: flex;      
 }
 
-.col_left {
-    margin-left: 10%;
-    border-right: 3px solid #BBAE7B;
-}
-
-.col_right {
-    margin-left: 10%;
+h1 span {
+    width: 50%;    
 }
 
 .reg_form {
     width: 50%;
     display: block;
-    margin: 70px auto 50px 0;
-    padding: 0;
+    margin: 70px auto 50px auto;
+    padding: 0px;
     font-size: 1.1em;
-    font-weight: bold;
+    font-weight: bold;    
+    text-align: center;
+}
+
+.col_rborder {
+    border-right: 3px solid #BBAE7B;
+}
+
+.reg_column {    
+    width: 90%;
+    display: block;    
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.div_flex {        
+    width: 100%;
+    display: flex;
+    justify-content: space-between;        
+}
+
+.text-danger {    
+    color: #FF0000;
+    float: right;
 }
 
 .textbox {
-    width: 90%;
+    width: 100%;
     padding: 12px;
     border: 1px solid #747373;
     border-radius: 4px;
     box-sizing: border-box;
-    margin: 6px 20px 25px 0;    
+    margin: 6px auto 25px auto;    
 }
 
 .submit {
     width: 170px;
     background-color: #747373;
     color: #ffffff;
-    margin-top: 30px;
-    margin-left: 160px;
+    margin-top: 30px auto 0 auto;    
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
@@ -222,7 +240,5 @@ footer a {
     font-weight: inherit;
 }
 
-.text-danger {
-    color: #FF0000;
-}
+
 

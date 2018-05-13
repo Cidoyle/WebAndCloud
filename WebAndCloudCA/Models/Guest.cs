@@ -28,7 +28,8 @@ namespace WebAndCloudCA.Models
         }
 
         [Display(Name = "Email Address *")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Valid email address is required")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Email address is required")]
+        [EmailAddress(ErrorMessage ="Enter correct email address")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
