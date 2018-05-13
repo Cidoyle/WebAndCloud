@@ -6,13 +6,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebAndCloudCA.Models
 {
-    public class Hostel
+    public class Room
     {
-        public int HostelId { get; set; }
+        public int RoomId { get; set; }
 
-        [Display(Name ="Hostel Name")]
+        [Display(Name ="Room Name")]
         [Required]
-        public string HostelName { get; set; }
+        public string RoomName { get; set; }
 
         [Display(Name = "County")]
         [Required]
