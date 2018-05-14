@@ -45,7 +45,18 @@ namespace WebAndCloudCA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(Login login)
         {
-            return View(login);
+            
+            //var user = db.Guest.Single(g => g.Name == user.Name && g.Password == user.Password);
+            //    if (user!= null)
+            //    {
+            //        Session["GuestID"] = user.GuestId.ToString();
+            //        Session["GuestName"] = user.GuestName.ToString();
+            return RedirectToAction("AccountDetails", "AccountDetails");
+            //    }
+            //    else
+            //    {
+            //        ModelState.AddModelError("", "Username or Password are incorrect");
+            //    }
         }
 
         [Authorize]

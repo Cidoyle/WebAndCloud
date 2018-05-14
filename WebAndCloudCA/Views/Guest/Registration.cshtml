@@ -15,7 +15,7 @@
 
     <panel class="reg_form  col_rborder">
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Registration", "Guest", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
 
@@ -89,7 +89,7 @@
 
     <panel class="reg_form">
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Login", "Guest", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
 

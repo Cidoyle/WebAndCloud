@@ -121,7 +121,6 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountDetailsController.cs" />
     <Compile Include="Controllers\AttractionsController.cs" />
     <Compile Include="Controllers\BookingDetailsController.cs" />
@@ -158,6 +157,7 @@
     <Content Include="Views\AccountDetails\EditDetails.cshtml" />
     <Content Include="Views\AccountDetails\AccountDetails.cshtml" />
     <Content Include="Views\BookingDetails\BookingDetails.cshtml" />
+    <Content Include="Views\Guest\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -167,7 +167,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Account\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
