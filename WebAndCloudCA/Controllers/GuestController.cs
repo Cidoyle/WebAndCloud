@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebAndCloudCA.Models;
-
+using WebAndCloudCA.ViewModels;
 
 namespace WebAndCloudCA.Controllers
 {
@@ -21,9 +21,9 @@ namespace WebAndCloudCA.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Registration(Guest guest)
+        public ActionResult Registration(MyAccountViewModel register)
         {
-            //NOTE: Conmplete when Database is created
+            //NOTE: Complete when Database is created
             //if (ModelState.IsValid)
             //{
             //    using (Database db)
@@ -35,7 +35,7 @@ namespace WebAndCloudCA.Controllers
             //        ViewBag.Message= "Registration Successful."
             //    }
             //}
-            return View(guest);
+            return View();
         }
 
         //Login
@@ -47,7 +47,7 @@ namespace WebAndCloudCA.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Login login)
+        public ActionResult Login(MyAccountViewModel login)
         {
             //using(Database...)
             //{ 

@@ -89,7 +89,7 @@
 
     <panel class="reg_form">
 
-        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        @using (Html.BeginForm("Login", "Guest", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
 
