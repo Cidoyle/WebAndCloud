@@ -8,6 +8,7 @@ namespace WebAndCloudCA.Models
 {
     public class Guest
     {
+        [Key]
         [Display(Name="Guest Id")]
         public int GuestId { get; set; }
 
@@ -29,7 +30,7 @@ namespace WebAndCloudCA.Models
 
         [Display(Name = "Email Address *")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Email address is required")]
-        [EmailAddress(ErrorMessage ="Enter correct email address")]
+        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage ="Invalid email address entered.")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 

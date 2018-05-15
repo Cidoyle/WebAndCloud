@@ -11,16 +11,13 @@ namespace WebAndCloudCA.Controllers
     public class GuestController : Controller
     {
         // GET: Guest
+        //Register
         public ActionResult Registration()
         {
             return View();
         }
 
-        public ActionResult Login()
-        {
-            return View();
-        }
-
+        
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -41,11 +38,19 @@ namespace WebAndCloudCA.Controllers
             return View(guest);
         }
 
+        //Login
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(Login login)
         {
-            
+            //using(Database...)
+            //{ 
             //var user = db.Guest.Single(g => g.Name == user.Name && g.Password == user.Password);
             //    if (user!= null)
             //    {
@@ -57,6 +62,8 @@ namespace WebAndCloudCA.Controllers
             //    {
             //        ModelState.AddModelError("", "Username or Password are incorrect");
             //    }
+            //}
+            //return View();
         }
 
         [Authorize]

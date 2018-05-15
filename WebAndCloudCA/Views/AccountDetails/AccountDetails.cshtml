@@ -4,6 +4,8 @@
     ViewBag.Title = "AccountDetails";
 }
 
+@*@if (Session["GuestID"] != null)
+{*@
 <h2>Account Details</h2>
 
 <div>
@@ -41,3 +43,4 @@
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.GuestId }) |*@
     @Html.ActionLink("Back to List", "Index")
 </p>
+@*}*@
