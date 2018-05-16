@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebAndCloudCA.Models;
+using WebAndCloudCA.ViewModels;
 
 namespace WebAndCloudCA.Controllers
 {
@@ -13,6 +14,12 @@ namespace WebAndCloudCA.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Search(SearchModelView Search)
+        {
+            return RedirectToAction("Rooms", "Rooms");
         }
 
     }

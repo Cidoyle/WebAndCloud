@@ -123,6 +123,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountDetailsController.cs" />
     <Compile Include="Controllers\AttractionsController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\BookingDetailsController.cs" />
     <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Models\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MyAccountViewModel.cs" />
+    <Compile Include="ViewModels\SearchModelView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -158,6 +160,7 @@
     <Content Include="Views\AccountDetails\EditDetails.cshtml" />
     <Content Include="Views\AccountDetails\AccountDetails.cshtml" />
     <Content Include="Views\BookingDetails\BookingDetails.cshtml" />
+    <Content Include="Views\Booking\Booking.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

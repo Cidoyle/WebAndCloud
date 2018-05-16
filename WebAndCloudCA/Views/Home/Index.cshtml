@@ -1,4 +1,5 @@
-﻿@model WebAndCloudCA.Models.Room
+﻿@model WebAndCloudCA.ViewModels.SearchModelView
+
     
 @{
     ViewBag.Title = "Index";
@@ -13,34 +14,56 @@
     <link rel="stylesheet" href="~/Content/Styles.css" type="text/css" />
 </head>
 <body>
-    <div id="main">
-        @*/Home/Index*@
-        <form action='@Url.Action("Index","Home")' method="post">
 
-            @*To Do: Create dropdown list for No. of Guests. CSS for search*@
-            <p class="search">
-                <label class="label">Where do you want to go? </label>
-                @Html.EnumDropDownListFor(h => h.CountyList, "Select County", new { @class = "form-control" })
-            </p>
-            <p class="search">
-                <label class="label">Check In </label>
-                <input type="date" name="txtCheckin" />
-            </p>
-            <p class="search">
-                <label class="label">Check Out </label>
-                <input type="date" name="txtCheckOut" />
-            </p>
-            <p class="search">
-                <label class="label">Guests </label>
-                <input type="number" name="numGuests" min="1" max="10"/>
- 
-            </p>
-            <p class="search">
-                <input id="Submit1" type="submit" value="Search" />
-            </p>
+        <panel class="reg_form">
 
-        </form>
-    </div>
+            @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="reg_column">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div>
+                        <div class="div_flex">
+                            <div>
+                                <label class="label_float">Where do you want to go? </label>
+                                @Html.ValidationMessageFor(model => model.Room.CountyList, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.EnumDropDownListFor(model => model.Room.CountyList, "Select County", new { @class = "textbox" })
+                        </div>
+                        <div class="div_flex">
+                            <div>
+                                @Html.LabelFor(model => model.Booking.ArrivalDate, new { @class = "label_float" })
+                                @Html.ValidationMessageFor(model => model.Booking.ArrivalDate, "", new { @class = "text-danger" })
+                            </div>
+                            <input class="textbox" type="date" name="txtCheckin" />
+                        </div>
+                        <div class="div_flex">
+                            <div>
+                                @Html.LabelFor(model => model.Booking.DepartureDate, new { @class = "label_float" })
+                                @Html.ValidationMessageFor(model => model.Booking.DepartureDate, "", new { @class = "text-danger" })
+                            </div>
+                            <input class="textbox" type="date" name="txtCheckOut" />
+                        </div>
+                        <div class="div_flex">
+                            <div>
+                                @Html.LabelFor(model => model.Booking.NumberOfGuests, new { @class = "label_float" })
+                                @Html.ValidationMessageFor(model => model.Booking.NumberOfGuests, "", new { @class = "text-danger" })
+                            </div>
+                            <input class="textbox" type="number" name="numGuests" min="1" max="10" />
+
+                        </div>
+                        <div>
+                            <div>
+                                <input  class="submit" id="Submit1" type="submit" value="Search" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </panel>
+
 </body>
 </html>
 
