@@ -89,11 +89,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Icons\mail.png" />
+    <Content Include="Content\Icons\room-alarm_clock.png" />
+    <Content Include="Content\Icons\room-color_tv.png" />
+    <Content Include="Content\Icons\room-double_bed.png" />
+    <Content Include="Content\Icons\room-fire_alarm.png" />
+    <Content Include="Content\Icons\room-hair_dryer.png" />
+    <Content Include="Content\Icons\room-iron.png" />
+    <Content Include="Content\Icons\room-non_smoking.png" />
+    <Content Include="Content\Icons\room-person.png" />
+    <Content Include="Content\Icons\room-shower.png" />
+    <Content Include="Content\Icons\room-single_bed.png" />
+    <Content Include="Content\Icons\room-twin_beds.png" />
     <Content Include="Content\Images\facebook-icon.png" />
     <Content Include="Content\Images\instagram-icon.png" />
     <Content Include="Content\Images\location-icon.png" />
     <Content Include="Content\Images\mail-icon.png" />
     <Content Include="Content\Images\phone-icon.png" />
+    <Content Include="Content\Images\Rooms\single_room1.jpg" />
+    <Content Include="Content\Images\Rooms\single_room2.jpg" />
     <Content Include="Content\Images\twitter-icon.png" />
     <Content Include="Content\Slides\a_ries_connemara.jpg" />
     <Content Include="Content\Slides\Cliffs-of-Moher-main.jpg" />
@@ -154,13 +168,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Rooms\Index.cshtml" />
-    <Content Include="Views\Rooms\Rooms.cshtml" />
     <Content Include="Views\Attractions\Index.cshtml" />
     <Content Include="Views\Guest\Registration.cshtml" />
     <Content Include="Views\AccountDetails\EditDetails.cshtml" />
     <Content Include="Views\AccountDetails\AccountDetails.cshtml" />
     <Content Include="Views\BookingDetails\BookingDetails.cshtml" />
     <Content Include="Views\Booking\Booking.cshtml" />
+    <Content Include="Views\Rooms\Rooms.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
