@@ -11,10 +11,12 @@ namespace WebAndCloudCA.Models
         public int BookingId { get; set; }
 
         [Display(Name ="Arrival Date")]
+        [DataType(DataType.Date)]
         [Required]
         public DateTime ArrivalDate { get; set; }
 
         [Display(Name ="Departure Date")]
+        [DataType(DataType.Date)]
         [Required]
         public DateTime DepartureDate { get; set; }
 

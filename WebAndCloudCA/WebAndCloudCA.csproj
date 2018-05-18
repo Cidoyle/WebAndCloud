@@ -139,6 +139,7 @@
     <Compile Include="Controllers\AttractionsController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\BookingDetailsController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
@@ -147,6 +148,7 @@
     </Compile>
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\County.cs" />
+    <Compile Include="Models\DAO.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\FeedbackTopic.cs" />
     <Compile Include="Models\Guest.cs" />
@@ -154,7 +156,7 @@
     <Compile Include="Models\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MyAccountViewModel.cs" />
-    <Compile Include="ViewModels\SearchModelView.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -167,7 +169,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\About\Index.cshtml" />
-    <Content Include="Views\Rooms\Index.cshtml" />
     <Content Include="Views\Attractions\Index.cshtml" />
     <Content Include="Views\Guest\Registration.cshtml" />
     <Content Include="Views\AccountDetails\EditDetails.cshtml" />
@@ -175,6 +176,7 @@
     <Content Include="Views\BookingDetails\BookingDetails.cshtml" />
     <Content Include="Views\Booking\Booking.cshtml" />
     <Content Include="Views\Rooms\Rooms.cshtml" />
+    <Content Include="Views\Feedback\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

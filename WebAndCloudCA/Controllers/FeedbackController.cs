@@ -6,11 +6,10 @@ using System.Web.Mvc;
 
 namespace WebAndCloudCA.Controllers
 {
-    public class RoomsController : Controller
+    public class FeedbackController : Controller
     {
-        // GET: Rooms
-        
-        public ActionResult Rooms()
+        // GET: Feedback
+        public ActionResult Index()
         {
             return View();
         }

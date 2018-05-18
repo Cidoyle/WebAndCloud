@@ -13,6 +13,8 @@ namespace WebAndCloudCA.Models
         [Display(Name ="Topic")]
         [Required]
         public FeedbackTopic FeedbackTopic { get; set; }
+
+        [Required]
         public string Description { get; set; }
        
     }

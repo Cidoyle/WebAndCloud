@@ -17,7 +17,7 @@ namespace WebAndCloudCA.Controllers
         }
 
         [HttpPost]
-        public ActionResult Search(SearchModelView Search)
+        public ActionResult Search(SearchViewModel Search)
         {
             return RedirectToAction("Rooms", "Rooms");
         }

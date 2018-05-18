@@ -1,4 +1,4 @@
-﻿@model WebAndCloudCA.ViewModels.SearchModelView
+﻿@model WebAndCloudCA.ViewModels.SearchViewModel
 
     
 @{
@@ -50,7 +50,7 @@
                                 @Html.LabelFor(model => model.Booking.NumberOfGuests, new { @class = "label_float" })
                                 @Html.ValidationMessageFor(model => model.Booking.NumberOfGuests, "", new { @class = "text-danger" })
                             </div>
-                            <input class="textbox" type="number" name="numGuests" min="1" max="10" />
+                            <input class="textbox" type="number" name="numGuests" min="1" max="4" />
 
                         </div>
                         <div>

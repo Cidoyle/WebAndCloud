@@ -6,6 +6,14 @@
 
 @*@if (Session["GuestID"] != null)
 {*@
+
+<nav class="account nav">
+    <ul class="container">
+        <li>@Html.ActionLink("Account Details", "AccountDetails", "AccountDetails")</li>
+        <li>@Html.ActionLink("Booking History", "BookingDetails", "BookingDetails")</li>
+        <li>@Html.ActionLink("Feedback", "Index", "Feedback")</li>
+    </ul>
+</nav>
 <h2>Account Details</h2>
 
 <div>
@@ -42,5 +50,6 @@
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.GuestId }) |*@
     @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Feedback", "Feedback")
 </p>
 @*}*@
