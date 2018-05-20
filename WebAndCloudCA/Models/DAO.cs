@@ -18,5 +18,7 @@ namespace WebAndCloudCA.Models
 
             conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["conString"].ConnectionString);
         }
+
+        //
     }
 }
