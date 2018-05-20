@@ -11,6 +11,7 @@ namespace WebAndCloudCA.Controllers
 {
     public class GuestController : Controller
     {
+        DAO dao = new DAO();
         // GET: Guest
         //Register
         public ActionResult Registration()
@@ -28,19 +29,38 @@ namespace WebAndCloudCA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Registration(MyAccountViewModel register)
         {
-            //NOTE: Complete when Database is created
+            int count = 0;
             if (ModelState.IsValid)
             {
-                //    using (Database db)
-                //    {
-                //        db.Guest.Add(guest);
-                //        db.SaveChanges();
-                          ModelState.Clear();
-                //        guest=null;
-                          ViewBag.Message = "Registration Successful.";
-                //}
+                
+                count = dao.AddGuest(register);
+                if (count > 0)
+                {
+                    ViewBag.Message = "Registration Successful";
+                }
+                else
+                {
+                    ViewBag.Message = "Error " + dao.message;
+                }
+                return View(register);
             }
-            return View();
+            else
+            {
+                return View(register);
+            }
+            ////NOTE: Complete when Database is created
+            //if (ModelState.IsValid)
+            //{
+            //    //    using (Database db)
+            //    //    {
+            //    //        db.Guest.Add(guest);
+            //    //        db.SaveChanges();
+            //              ModelState.Clear();
+            //    //        guest=null;
+            //              ViewBag.Message = "Registration Successful.";
+            //    //}
+            //}
+            //return View();
         }
 
 
