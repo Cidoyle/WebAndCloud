@@ -246,35 +246,24 @@ h1 span {
 
 /* Rooms */
 
-/*.section_rooms a {
-    text-decoration: none;
-    color: inherit;
-}*/
-
-/*.section_rooms h1 {
-    margin-bottom: 30px;
-    padding: 8px 0;
-    border: none;
-}*/
+.rooms_container {
+    border: 1px dotted #BBAE7B;
+    border-radius: 10px;
+    margin: 0 0 40px 0;
+}
 
 .rooms_container_rightimage {
     display: flex;
-    margin: 0 0 30px 0;
+    margin: 0;
     padding: 10px;
-    display: flex;
-    flex-direction: row;
-    border: 1px dotted #BBAE7B;
-    border-radius: 10px;
+    flex-direction: row;    
 }
 
 .rooms_container_leftimage {
-    display: flex;
-    margin: 0 0 30px 0;
+    display: flex;    
     padding: 10px;
     display: flex;
-    flex-direction: row-reverse;
-    border: 1px dotted #BBAE7B;
-    border-radius: 10px;
+    flex-direction: row-reverse;    
 }
 
 .rooms_desc_column {
@@ -400,5 +389,34 @@ h1 span {
     height: auto;
 }
 
+.rooms_booking {
+    margin: 0 10px 10px 10px;
+    padding: 0 0 0 35%;
+    display: flex;
+    align-items: baseline;
+    border: 1px solid #353535;
+    background-color: #BBAE7B;
+    /*background-color: #747373;*/
+    color: #ffffff;
+    border-radius: 30px;
+}
+
+.rooms_booking h1 {
+    display: flex;
+    flex: 1;
+    line-height: 0;
+    padding: 0;    
+}
+
+.rooms_booking h1 span {
+    font-size: .6em;
+}
+
+.rooms_booking h2 {
+    display: flex;
+    flex: 0.3;
+    line-height: 0;
+    padding: 0;
+}
 
 
