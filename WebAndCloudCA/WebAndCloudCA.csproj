@@ -89,6 +89,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\GetCosyDB.mdf" />
+    <Content Include="App_Data\GetCosyDB_log.ldf">
+      <DependentUpon>GetCosyDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\Icons\mail.png" />
     <Content Include="Content\Icons\room-alarm_clock.png" />
     <Content Include="Content\Icons\room-color_tv.png" />
@@ -184,9 +188,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

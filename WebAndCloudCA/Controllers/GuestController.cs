@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebAndCloudCA.Models;
 using WebAndCloudCA.ViewModels;
 
@@ -17,30 +18,28 @@ namespace WebAndCloudCA.Controllers
             return View();
         }
 
-        
+        //Login - no view related, need to figure out if need it. Maybe partial view?
+        public ActionResult Login()
+        {
+            return View();
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Registration(MyAccountViewModel register)
         {
             //NOTE: Complete when Database is created
-            //if (ModelState.IsValid)
-            //{
-            //    using (Database db)
-            //    {
-            //        db.Guest.Add(guest);
-            //        db.SaveChanges();
-            //        ModelState.Clear();
-            //        guest=null;
-            //        ViewBag.Message= "Registration Successful."
-            //    }
-            //}
-            return View();
-        }
-
-        //Login
-        public ActionResult Login()
-        {
+            if (ModelState.IsValid)
+            {
+                //    using (Database db)
+                //    {
+                //        db.Guest.Add(guest);
+                //        db.SaveChanges();
+                          ModelState.Clear();
+                //        guest=null;
+                          ViewBag.Message = "Registration Successful.";
+                //}
+            }
             return View();
         }
 
@@ -66,10 +65,9 @@ namespace WebAndCloudCA.Controllers
             //return View();
         }
 
-        [Authorize]
         public  ActionResult Logout()
         {
-            //Add code 
+            FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Guest");
         }
     }
