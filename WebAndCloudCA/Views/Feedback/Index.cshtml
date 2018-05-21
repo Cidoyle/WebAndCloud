@@ -1,0 +1,46 @@
+﻿@model WebAndCloudCA.Models.Feedback
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Feedback</h2>
+
+<panel class="reg_form">
+    @using (Html.BeginForm("Index", "Feedback", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="reg_column">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="div_flex">
+                <div>
+                    @Html.LabelFor(f => f.FeedbackTopic, new { @class = "label_float" })
+                    @Html.ValidationMessageFor(f => f.FeedbackTopic, "", new { @class = "text-danger" })
+                </div>
+                @Html.EnumDropDownListFor(f => f.FeedbackTopic, "Select Topic", new { @class = "textbox" })
+            </div>
+            <div class="div_flex">
+                <div>
+                    @Html.LabelFor(f => f.Description, htmlAttributes: new { @class = "label_float" })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+                @Html.TextAreaFor(model => model.Description, new { @class = "textbox" })
+            </div>
+
+            <div>
+                <div>
+                    <input type="submit" value="Submit" class="submit" />
+                </div>
+            </div>
+        </div>
+
+    }
+</panel>
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+

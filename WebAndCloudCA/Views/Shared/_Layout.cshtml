@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" type="text/css" href=@Url.Content("~/Content/Styles.css") />
+    <script type="text/javascript" src=@Url.Content("~/Scripts/jquery-1.10.2.js")></script>
+    <script type="text/javascript" src=@Url.Content("~/Scripts/MyJavaScript.js")></script>
+</head>
+<body>
+    <header>
+        <div class="line1">
+            @*<div id="homelogo">
+                <a href="home.html">
+                    <div>
+                        <h1>Get Cosy</h1>
+                        <h3>Irish Hostels</h3>
+                    </div>
+                </a>
+            </div>*@
+            <div id="homelogo">
+                <a href="@Url.Action("Index", "Home")">
+                    <div>
+                        <h1>Get Cosy</h1>
+                        <h3>Irish Holiday Room Rental</h3>
+                    </div>
+                </a>
+            </div>
+            <div id="socialbox">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="~/Content/Icons/facebook-icon.png" alt="facebook">
+                </a>
+                <a href="https://twitter.com" alt="twitter" target="_blank">
+                    <img src="~/Content/Icons/twitter-icon.png" alt="twitter">
+                </a>
+                <a href="https://www.instagram.com" alt="instagram" target="_blank">
+                    <img src="~/Content/Icons/instagram-icon.png" alt="instagram">
+                </a>
+            </div>
+        </div>
+    </header>
+    <nav class="mainnav line2">
+        <ul class="container">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("About Us", "Index", "About")</li>
+            <li>@Html.ActionLink("Rooms", "Rooms", "Rooms")</li>
+            <li>@Html.ActionLink("Attractions", "Index", "Attractions")</li>
+            @*<li><a href="faq.html">FAQ</a></li>*@
+            @*<li><a href="testimonials_.html">Testimonials</a></li>*@
+            @*<li><a href="contact.html">Contact Us</a></li>*@
+            <li>@Html.ActionLink("My Account", "Registration", "Guest")</li>
+        </ul>
+    </nav>
+    <div class="mainimage" id="slideShowImg">
+        <div><img src="~/Content/Slides/a_ries_connemara.jpg" alt="Galway Landscape"></div>
+        <div><img src="~/Content/Slides/Cliffs-of-Moher-main.jpg" alt="Cliffs of Moher"></div>
+        <div><img src="~/Content/Slides/galway.jpg" alt="Galway"></div>
+        <div><img src="~/Content/Slides/hotel_main.jpg" alt="Castle"></div>
+        <div><img src="~/Content/Slides/pine-island-connemara-galway.jpg" alt="Pine Island"></div>
+        <div><img src="~/Content/Slides/visitGalway_main.jpg" alt="Visit Galway"></div>
+    </div>    
+
+    <main class="container main">
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="line1">
+            <div class="footerdiv1 rightborder">
+                <a href="https://goo.gl/maps/q3aqhC9E4jD2" target="_blank"><img src="~/Content/Icons/location-icon.png" alt="location">Get Cosy, Lough Atalia Rd, Galway</a>
+            </div>
+            <div class="footerdiv1 rightborder">
+                <a href="tel:0035391162119"><img src="~/Content/Icons/phone-icon.png" alt="phone">+353 91 162119</a>
+            </div>
+            <div class="footerdiv1">
+                <a href="mailto:info@gilliansbb.ie" target="_blank"><img src="~/Content/Icons/mail-icon.png" alt="email">info@getcosy.ie</a>
+            </div>
+        </div>
+        <div class="line2 footerdiv2">
+            <div>&copy @DateTime.Now.Year Get Cosy</div>
+            <div><a href="sitemap.html">Sitemap</a></div>
+        </div>
+    </footer>
+</body>
+        </html>
