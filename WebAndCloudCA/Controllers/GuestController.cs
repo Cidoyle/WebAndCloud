@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Web.Security;
 using WebAndCloudCA.Models;
 using WebAndCloudCA.ViewModels;
+using System.Data.SqlClient;
+
 
 namespace WebAndCloudCA.Controllers
 {
@@ -68,21 +70,22 @@ namespace WebAndCloudCA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(MyAccountViewModel login)
         {
-            //using(Database...)
-            //{ 
-            //var user = db.Guest.Single(g => g.Name == user.Name && g.Password == user.Password);
-            //    if (user!= null)
-            //    {
-            //        Session["GuestID"] = user.GuestId.ToString();
-            //        Session["GuestName"] = user.GuestName.ToString();
+
+            /*using(Database db)
+            { 
+            var user = db.Guest.Single(g => g.Name == db.Name && g.Password == db.Password);
+                if (user!= null)
+                {
+                   Session["GuestID"] = user.GuestId.ToString();
+                   Session["GuestName"] = user.GuestName.ToString();
             return RedirectToAction("AccountDetails", "AccountDetails");
-            //    }
-            //    else
-            //    {
-            //        ModelState.AddModelError("", "Username or Password are incorrect");
-            //    }
-            //}
-            //return View();
+                }
+                else
+               {
+                    ModelState.AddModelError("", "Username or Password are incorrect");
+                }
+            }*/
+            return RedirectToAction("Booking", "Booking");
         }
 
         public  ActionResult Logout()

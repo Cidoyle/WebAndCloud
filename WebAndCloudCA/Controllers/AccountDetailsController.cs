@@ -11,7 +11,7 @@ namespace WebAndCloudCA.Controllers
         // GET: AccountDetails
         public ActionResult AccountDetails()
         {
-            return View();//Remove this line and uncomment others when Database added
+            return View();
             //if (Session["GuestID"] != null)
             //{
             //    return View();
