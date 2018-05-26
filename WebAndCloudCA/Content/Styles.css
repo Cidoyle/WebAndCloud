@@ -419,4 +419,36 @@ h1 span {
     padding: 0;
 }
 
+/* FAQ */
+
+/*.section_faq {
+    margin-bottom: 70px;
+}*/
+
+/*.section_faq h1 {
+    margin-bottom: 40px;
+    padding: 8px 0;
+    border: none;
+}*/
+
+.question, .answer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.question {
+    font-size: 1.6em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.answer {
+    font-size: 1.4em;
+    padding-bottom: 30px;
+}
+
+.answer:last-child {
+    padding-bottom: 0;
+}
+
 

@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\FAQ.xml" />
     <Content Include="App_Data\GetCosyDB.mdf" />
     <Content Include="App_Data\GetCosyDB_log.ldf">
       <DependentUpon>GetCosyDB.mdf</DependentUpon>
@@ -149,6 +150,7 @@
     <Compile Include="Controllers\AttractionsController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\BookingDetailsController.cs" />
+    <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -187,6 +189,7 @@
     <Content Include="Views\Booking\Booking.cshtml" />
     <Content Include="Views\Rooms\Rooms.cshtml" />
     <Content Include="Views\Feedback\Index.cshtml" />
+    <Content Include="Views\FAQ\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

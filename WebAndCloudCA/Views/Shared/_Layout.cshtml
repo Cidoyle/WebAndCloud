@@ -6,7 +6,8 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link rel="stylesheet" type="text/css" href=@Url.Content("~/Content/Styles.css") />
     <script type="text/javascript" src=@Url.Content("~/Scripts/jquery-1.10.2.js")></script>
-    <script type="text/javascript" src=@Url.Content("~/Scripts/MyJavaScript.js")></script>
+    <script type="text/javascript" src=@Url.Content("~/Scripts/MyJavaScript.js")></script>   
+    
 </head>
 <body>
     <header>
@@ -46,6 +47,7 @@
             <li>@Html.ActionLink("About Us", "Index", "About")</li>
             <li>@Html.ActionLink("Rooms", "Rooms", "Rooms")</li>
             <li>@Html.ActionLink("Attractions", "Index", "Attractions")</li>
+            <li>@Html.ActionLink("FAQ", "Index", "FAQ")</li>
             @*<li><a href="faq.html">FAQ</a></li>*@
             @*<li><a href="testimonials_.html">Testimonials</a></li>*@
             @*<li><a href="contact.html">Contact Us</a></li>*@
