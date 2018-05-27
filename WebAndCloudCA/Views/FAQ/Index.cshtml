@@ -8,10 +8,8 @@
 <h1 class="line1 headline">Frequently Asked Questions</h1>
 
 @foreach (XmlNode node in (XmlNodeList)ViewBag.List)
-{
-    <div>
-        <div class="question">@node["question"].InnerText</div>
-        <div class="answer">@node["answer"].InnerText</div>        
-    </div>
+{    
+        <div class="question" id="question">@node["question"].InnerText</div>
+        <div class="answer" id="answer">@node["answer"].InnerText</div>            
 }
 

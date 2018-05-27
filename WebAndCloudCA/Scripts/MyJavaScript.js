@@ -21,34 +21,10 @@ setInterval(function()
 });
 
 
-function enableAnswers() {
-    hideAnswers();
-    var questions = document.getElementsByClassName("question");
-    for (var i = 0; i < questions.length; i++) {
-        questions[i].onclick = function () {
-            var answer = this.nextElementSibling;
-            if (isVisible(answer)) {
-                answer.style.display = "none";
-            }
-            else {
-                answer.style.display = "block";
-            }
-        }
-    }
-}
-function hideAnswers() {
-    var questions = document.getElementsByClassName("question");
-    for (var i = 0; i < questions.length; i++) {
-        var answer = questions[i].nextElementSibling;
-        if (isVisible(answer)) {
-            answer.style.display = "none";
-        }
-    }
-}
-function isVisible(element) {
-    var result = false;
-    if (element.style.display != "none") {
-        result = true;
-    }
-    return result;
-}
+$(document).ready(function ()
+{
+    $(".answer").hide();
+    $(".question").bind('click', function () {
+        $(this).next().toggle();
+    })    
+})
