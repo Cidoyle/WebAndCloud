@@ -421,16 +421,6 @@ h1 span {
 
 /* FAQ */
 
-/*.section_faq {
-    margin-bottom: 70px;
-}*/
-
-/*.section_faq h1 {
-    margin-bottom: 40px;
-    padding: 8px 0;
-    border: none;
-}*/
-
 .question, .answer {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -447,8 +437,5 @@ h1 span {
     padding-bottom: 30px;
 }
 
-.answer:last-child {
-    padding-bottom: 0;
-}
 
 

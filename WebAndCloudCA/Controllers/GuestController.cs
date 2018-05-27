@@ -9,6 +9,7 @@ using WebAndCloudCA.ViewModels;
 using System.Data.SqlClient;
 
 
+
 namespace WebAndCloudCA.Controllers
 {
     public class GuestController : Controller
@@ -33,8 +34,7 @@ namespace WebAndCloudCA.Controllers
         {
             int count = 0;
             if (ModelState.IsValid)
-            {
-                
+            {                
                 count = dao.AddGuest(register);
                 if (count > 0)
                 {
@@ -44,7 +44,8 @@ namespace WebAndCloudCA.Controllers
                 {
                     ViewBag.Message = "Error " + dao.message;
                 }
-                return View(register);
+                ModelState.Clear();
+                return View();
             }
             else
             {
@@ -70,21 +71,22 @@ namespace WebAndCloudCA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(MyAccountViewModel login)
         {
-
-            /*using(Database db)
-            { 
-            var user = db.Guest.Single(g => g.Name == db.Name && g.Password == db.Password);
-                if (user!= null)
-                {
-                   Session["GuestID"] = user.GuestId.ToString();
-                   Session["GuestName"] = user.GuestName.ToString();
-            return RedirectToAction("AccountDetails", "AccountDetails");
-                }
-                else
-               {
-                    ModelState.AddModelError("", "Username or Password are incorrect");
-                }
-            }*/
+            
+            //using (Database db)
+            //{
+            //    var user = db.Guest.Single(g => g.Name == db.Name && g.Password == db.Password);
+            //    if (user != null)
+            //    {
+            //        Session["GuestID"] = user.GuestId.ToString();
+            //        Session["GuestName"] = user.GuestName.ToString();
+            //        return RedirectToAction("AccountDetails", "AccountDetails");
+            //    }
+            //    else
+            //    {
+            //        ModelState.AddModelError("", "Username or Password are incorrect");
+            //    }
+            //}
+            ModelState.Clear();
             return RedirectToAction("Booking", "Booking");
         }
 
