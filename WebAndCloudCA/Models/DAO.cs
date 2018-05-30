@@ -48,5 +48,30 @@ namespace WebAndCloudCA.Models
             }
             return count;
         }
+
+        public int AddBooking (Booking booking)
+        {
+            int count = 0;
+            SqlCommand cmd = new SqlCommand("uspAddBooking", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@arrival", booking.ArrivalDate);
+            cmd.Parameters.AddWithValue("@departure", booking.DepartureDate);
+            cmd.Parameters.AddWithValue("@noOfGuests", booking.NumberOfGuests);
+
+            try
+            {
+                conn.Open();
+                count = cmd.ExecuteNonQuery();
+            }
+            catch (SystemException ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return count;
+        }
     }
 }

@@ -71,7 +71,7 @@ namespace WebAndCloudCA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(MyAccountViewModel login)
         {
-            
+
             //using (Database db)
             //{
             //    var user = db.Guest.Single(g => g.Name == db.Name && g.Password == db.Password);
@@ -85,7 +85,7 @@ namespace WebAndCloudCA.Controllers
             //    {
             //        ModelState.AddModelError("", "Username or Password are incorrect");
             //    }
-            //}
+           // }
             ModelState.Clear();
             return RedirectToAction("Booking", "Booking");
         }
