@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebAndCloudCA.Models;
 
 namespace WebAndCloudCA.Controllers
 {
@@ -12,18 +13,16 @@ namespace WebAndCloudCA.Controllers
         public ActionResult AccountDetails()
         {
             return View();
-            //if (Session["GuestID"] != null)
-            //{
-            //    return View();
-            //}
-            //else
-            //{
-            //    return RedirectToAction("Login");
-            //}          
+                
+        }
+
+        public ActionResult EditDetails()
+        {
+            return View();
         }
 
         [HttpPost]
-        public ActionResult EditDetails()
+        public ActionResult EditDetails(Guest guest)
         {
             return View();
         }
