@@ -38,7 +38,7 @@ namespace WebAndCloudCA.Models
             cmd.Parameters.AddWithValue("@lastName", guest.LastName);
             cmd.Parameters.AddWithValue("@email", guest.Email);
             password = Crypto.HashPassword(guest.Password);
-            cmd.Parameters.AddWithValue("@password", guest.Password);
+            cmd.Parameters.AddWithValue("@password", password);
             cmd.Parameters.AddWithValue("@phone", guest.PhoneNo);
 
             try
@@ -70,7 +70,7 @@ namespace WebAndCloudCA.Models
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    password = reader["Pass"].ToString();
+                    password = reader["Password"].ToString();
                     if (Crypto.VerifyHashedPassword(password, guest.Password))
                     {
                         firstName = reader["FirstName"].ToString();

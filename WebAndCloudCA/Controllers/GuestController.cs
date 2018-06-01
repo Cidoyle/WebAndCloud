@@ -7,8 +7,8 @@ using System.Web.Security;
 using WebAndCloudCA.Models;
 using WebAndCloudCA.ViewModels;
 using System.Data.SqlClient;
-
-
+using System.Linq.Expressions;
+using System.Web.Helpers;
 
 namespace WebAndCloudCA.Controllers
 {
@@ -22,7 +22,7 @@ namespace WebAndCloudCA.Controllers
             return View();
         }
 
-        //Login - no view related, need to figure out if need it. Maybe partial view?
+        //Maybe partial view?
         public ActionResult Login()
         {
             return View();
@@ -58,35 +58,39 @@ namespace WebAndCloudCA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(Guest guest)
         {
-            ////ModelState.Remove("FirstName");
-            ////ModelState.Remove("LastName");
-            ////ModelState.Remove("ConfirmPassword");
-            ////if (ModelState.IsValid)
-            ////{
-            ////    guest.Login.FirstName = dao.CheckLogin(guest);
-            ////    if (user.FirstName != null)
-            ////    {
-            ////        //Session.Add("name", user.FirstName);
-            ////        Session["name"] = user.FirstName;
-            ////        Session["email"] = user.Email;
-            ////        return RedirectToAction("Index", "Home");
-            ////    }
-            ////    else
-            ////    {
-            ////        ViewBag.Status = "Error " + dao.message;
+            ModelState.Remove("GuestId");
+            ModelState.Remove("FirstName");
+            ModelState.Remove("LastName");
+            ModelState.Remove("Name");
+            ModelState.Remove("ConfirmPassword");
+            ModelState.Remove("Phone");
+            if (ModelState.IsValid)
+            {
+                guest.FirstName = dao.CheckLogin(guest);
+                if (guest.FirstName != null)
+                {
+                    Session.Add("name", guest.FirstName);
+                    Session["name"] = guest.FirstName;
+                    Session["email"] = guest.Email;
+                    return RedirectToAction("Booking", "Booking");
+                }
+                else
+                {
+                    ViewBag.Status = "Error " + dao.message;
+                }
+            }
+            //return RedirectToAction("Booking", "Booking");
+            return View();
 
-            ////        return View("Status");
-            ////    }
-            ////}
-            ModelState.Clear();
-            return RedirectToAction("Booking", "Booking");
+            //ModelState.Clear();
+            //return RedirectToAction("Booking", "Booking");
 
-            //using (Database db)
+            //using (SqlConnection conn = new SqlConnection())
             //{
-            //    var user = db.Guest.Single(g => g.Name == db.Name && g.Password == db.Password);
+            //    var user = conn.Guest.Single(g => g.Email == db.Email && g.Password == db.Password);
             //    if (user != null)
             //    {
-            //        Session["GuestID"] = user.GuestId.ToString();
+            //        Session["GuestId"] = user.GuestId.ToString();
             //        Session["GuestName"] = user.GuestName.ToString();
             //        return RedirectToAction("AccountDetails", "AccountDetails");
             //    }
@@ -94,7 +98,7 @@ namespace WebAndCloudCA.Controllers
             //    {
             //        ModelState.AddModelError("", "Username or Password are incorrect");
             //    }
-            // }
+            //}
 
 
 
