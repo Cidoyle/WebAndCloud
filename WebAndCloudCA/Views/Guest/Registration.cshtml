@@ -1,4 +1,4 @@
-﻿@model WebAndCloudCA.ViewModels.MyAccountViewModel
+﻿@model WebAndCloudCA.Models.Guest
 <script type="text/javascript" src=@Url.Content("~/Scripts/jquery-1.10.2.js")></script>
 <script type="text/javascript" src=@Url.Content("~/Scripts/MyJavaScript.js")></script>
 
@@ -19,71 +19,64 @@
         {
             @Html.AntiForgeryToken()
 
-            @*NOTE:Complete when Database Created*@
-            @*@Html.AntiForgeryToken();
-                        if (ViewBag.Message != null)
-                        {
-                            <div>
-                            @ViewBag.Message
-                            </div>
-                        }*@
-        <div class="reg_column">
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div>
-                <div class="div_flex">
-                    @Html.LabelFor(model => model.Guest.FirstName, new { @class = "label_float" })
-                    @Html.ValidationMessageFor(model => model.Guest.FirstName, "", new { @class = "text-danger" })
-                </div>
-                @Html.EditorFor(model => model.Guest.FirstName, new { htmlAttributes = new { @class = "textbox" } })
-            </div>
+            <div class="reg_column">
 
-            <div>
-                <div class="div_flex">
-                    @Html.LabelFor(model => model.Guest.LastName)
-                    @Html.ValidationMessageFor(model => model.Guest.LastName, "", new { @class = "text-danger" })
-                </div>
-                @Html.EditorFor(model => model.Guest.LastName, new { htmlAttributes = new { @class = "textbox" } })
-            </div>
-
-            <div>
-                <div class="div_flex">
-                    @Html.LabelFor(model => model.Guest.Email)
-                    @Html.ValidationMessageFor(model => model.Guest.Email, "", new { @class = "text-danger" })
-                </div>
-                @Html.EditorFor(model => model.Guest.Email, new { htmlAttributes = new { @class = "textbox" } })
-            </div>
-
-            <div>
-                <div class="div_flex">
-                    @Html.LabelFor(model => model.Guest.Password)
-                    @Html.ValidationMessageFor(model => model.Guest.Password, "", new { @class = "text-danger" })
-                </div>
-                @Html.PasswordFor(model => model.Guest.Password, new { @class = "textbox" })
-            </div>
-
-            <div>
-                <div class="div_flex">
-                    @Html.LabelFor(model => model.Guest.ConfirmPassword)
-                    @Html.ValidationMessageFor(model => model.Guest.ConfirmPassword, "", new { @class = "text-danger" })
-                </div>
-                @Html.PasswordFor(model => model.Guest.ConfirmPassword, new { @class = "textbox" })
-            </div>
-
-            <div>
-                <div class="div_flex">
-                    @Html.LabelFor(model => model.Guest.PhoneNo)
-                    @Html.ValidationMessageFor(model => model.Guest.PhoneNo, "", new { @class = "text-danger" })
-                </div>
-                @Html.EditorFor(model => model.Guest.PhoneNo, new { htmlAttributes = new { @class = "textbox" } })
-            </div>
-
-            <div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div>
-                    <input type="submit" value="Create Account" class="submit" />
+                    <div class="div_flex">
+                        @Html.LabelFor(g => g.FirstName)
+                        @Html.ValidationMessageFor(g => g.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.EditorFor(g => g.FirstName, new { htmlAttributes = new { @class = "textbox" } })
+                </div>
+
+                <div>
+                    <div class="div_flex">
+                        @Html.LabelFor(g => g.LastName)
+                        @Html.ValidationMessageFor(g => g.LastName, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.EditorFor(g => g.LastName, new { htmlAttributes = new { @class = "textbox" } })
+                </div>
+
+                <div>
+                    <div class="div_flex">
+                        @Html.LabelFor(g => g.Email)
+                        @Html.ValidationMessageFor(g => g.Email, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.EditorFor(g => g.Email, new { htmlAttributes = new { @class = "textbox" } })
+                </div>
+
+                <div>
+                    <div class="div_flex">
+                        @Html.LabelFor(g => g.Password)
+                        @Html.ValidationMessageFor(g => g.Password, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.PasswordFor(g => g.Password, new { @class = "textbox" })
+                </div>
+
+                <div>
+                    <div class="div_flex">
+                        @Html.LabelFor(g => g.ConfirmPassword)
+                        @Html.ValidationMessageFor(g => g.ConfirmPassword, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.PasswordFor(g => g.ConfirmPassword, new { @class = "textbox" })
+                </div>
+
+                <div>
+                    <div class="div_flex">
+                        @Html.LabelFor(g => g.PhoneNo)
+                        @Html.ValidationMessageFor(g => g.PhoneNo, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.EditorFor(g => g.PhoneNo, new { htmlAttributes = new { @class = "textbox" } })
+                </div>
+
+                <div>
+                    <div>
+                        <input type="submit" value="Create Account" class="submit" />
+                    </div>
                 </div>
             </div>
-        </div>
         }
     </panel>
 
@@ -95,22 +88,22 @@
 
         <div class="reg_column">
 
-            @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
-            @Html.ValidationSummary(true, "Login failed. Please check your login details.", new { @class = "text-danger" })
+    @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+    @Html.ValidationSummary(true, "Login failed. Please check your login details.", new { @class = "text-danger" })
             <div>
                 <div class="div_flex">
-                    @Html.LabelFor(model => model.Login.ValEmail)
-                    @Html.ValidationMessageFor(model => model.Login.ValEmail, "", new { @class = "text-danger" })
+                    @Html.LabelFor(g => g.Email)
+                    @Html.ValidationMessageFor(g => g.Email, "", new { @class = "text-danger" })
                 </div>
-                @Html.EditorFor(model => model.Login.ValEmail, new { htmlAttributes = new { @class = "textbox" } })
+                @Html.EditorFor(g => g.Email, new { htmlAttributes = new { @class = "textbox" } })
             </div>
 
             <div>
                 <div class="div_flex">
-                    @Html.LabelFor(model => model.Login.ValPassword)
-                    @Html.ValidationMessageFor(model => model.Login.ValPassword, "", new { @class = "text-danger" })
+                    @Html.LabelFor(g => g.Password)
+                    @Html.ValidationMessageFor(g => g.Password, "", new { @class = "text-danger" })
                 </div>
-                @Html.EditorFor(model => model.Login.ValPassword, new { htmlAttributes = new { @class = "textbox" } })
+                @Html.EditorFor(g => g.Password, new { htmlAttributes = new { @class = "textbox" } })
             </div>
 
             <div>
@@ -118,8 +111,8 @@
                     <input type="submit" value="Sign In" class="submit" />
                 </div>
             </div>
-        </div>
-        }
-    </panel>
+            </div>
+            }
+            </panel>
 
-</section>
+        </section>

@@ -28,17 +28,18 @@ namespace WebAndCloudCA.Models
 
         #region Guest
         //Add Guest to DB via Registration
-        public int AddGuest(MyAccountViewModel guest)
+        public int AddGuest(Guest guest)
         {
             int count = 0;
             string password;
             SqlCommand cmd = new SqlCommand("uspAddGuest", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@firstName", guest.Guest.FirstName);
-            cmd.Parameters.AddWithValue("@lastName", guest.Guest.LastName);
-            cmd.Parameters.AddWithValue("@email", guest.Guest.Email);
-            password = Crypto.HashPassword(guest.Guest.Password);
-            cmd.Parameters.AddWithValue("@phone", guest.Guest.PhoneNo);
+            cmd.Parameters.AddWithValue("@firstName", guest.FirstName);
+            cmd.Parameters.AddWithValue("@lastName", guest.LastName);
+            cmd.Parameters.AddWithValue("@email", guest.Email);
+            password = Crypto.HashPassword(guest.Password);
+            cmd.Parameters.AddWithValue("@password", guest.Password);
+            cmd.Parameters.AddWithValue("@phone", guest.PhoneNo);
 
             try
             {
@@ -56,13 +57,13 @@ namespace WebAndCloudCA.Models
             return count;
         }
 
-        public string CheckLogin(MyAccountViewModel guest)
+        public string CheckLogin(Guest guest)
         {
             string password, firstName = null;
             SqlDataReader reader;
             SqlCommand cmd = new SqlCommand("uspCheckLogin", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@email", guest.Guest.Email);
+            cmd.Parameters.AddWithValue("@email", guest.Email);
             try
             {
                 conn.Open();
@@ -70,7 +71,7 @@ namespace WebAndCloudCA.Models
                 while (reader.Read())
                 {
                     password = reader["Pass"].ToString();
-                    if (Crypto.VerifyHashedPassword(password, guest.Guest.Password))
+                    if (Crypto.VerifyHashedPassword(password, guest.Password))
                     {
                         firstName = reader["FirstName"].ToString();
                     }

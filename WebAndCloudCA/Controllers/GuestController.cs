@@ -30,7 +30,7 @@ namespace WebAndCloudCA.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Registration(MyAccountViewModel register)
+        public ActionResult Registration(Guest register)
         {
             int count = 0;
             if (ModelState.IsValid)
@@ -56,8 +56,30 @@ namespace WebAndCloudCA.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(MyAccountViewModel login)
+        public ActionResult Login(Guest guest)
         {
+            ////ModelState.Remove("FirstName");
+            ////ModelState.Remove("LastName");
+            ////ModelState.Remove("ConfirmPassword");
+            ////if (ModelState.IsValid)
+            ////{
+            ////    guest.Login.FirstName = dao.CheckLogin(guest);
+            ////    if (user.FirstName != null)
+            ////    {
+            ////        //Session.Add("name", user.FirstName);
+            ////        Session["name"] = user.FirstName;
+            ////        Session["email"] = user.Email;
+            ////        return RedirectToAction("Index", "Home");
+            ////    }
+            ////    else
+            ////    {
+            ////        ViewBag.Status = "Error " + dao.message;
+
+            ////        return View("Status");
+            ////    }
+            ////}
+            ModelState.Clear();
+            return RedirectToAction("Booking", "Booking");
 
             //using (Database db)
             //{
@@ -72,9 +94,10 @@ namespace WebAndCloudCA.Controllers
             //    {
             //        ModelState.AddModelError("", "Username or Password are incorrect");
             //    }
-           // }
-            ModelState.Clear();
-            return RedirectToAction("Booking", "Booking");
+            // }
+
+
+
         }
 
         public  ActionResult Logout()
