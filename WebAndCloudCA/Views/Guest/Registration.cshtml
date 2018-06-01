@@ -20,63 +20,66 @@
             @Html.AntiForgeryToken()
 
 
-            <div class="reg_column">
+        <div class="reg_column">
 
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div>
-                    <div class="div_flex">
-                        @Html.LabelFor(g => g.FirstName)
-                        @Html.ValidationMessageFor(g => g.FirstName, "", new { @class = "text-danger" })
-                    </div>
-                    @Html.EditorFor(g => g.FirstName, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div>
+                <div class="div_flex">
+                    @Html.LabelFor(g => g.FirstName)
+                    @Html.ValidationMessageFor(g => g.FirstName, "", new { @class = "text-danger" })
                 </div>
+                @Html.EditorFor(g => g.FirstName, new { htmlAttributes = new { @class = "textbox" } })
+            </div>
 
-                <div>
-                    <div class="div_flex">
-                        @Html.LabelFor(g => g.LastName)
-                        @Html.ValidationMessageFor(g => g.LastName, "", new { @class = "text-danger" })
-                    </div>
-                    @Html.EditorFor(g => g.LastName, new { htmlAttributes = new { @class = "textbox" } })
+            <div>
+                <div class="div_flex">
+                    @Html.LabelFor(g => g.LastName)
+                    @Html.ValidationMessageFor(g => g.LastName, "", new { @class = "text-danger" })
                 </div>
+                @Html.EditorFor(g => g.LastName, new { htmlAttributes = new { @class = "textbox" } })
+            </div>
 
-                <div>
-                    <div class="div_flex">
-                        @Html.LabelFor(g => g.Email)
-                        @Html.ValidationMessageFor(g => g.Email, "", new { @class = "text-danger" })
-                    </div>
-                    @Html.EditorFor(g => g.Email, new { htmlAttributes = new { @class = "textbox" } })
+            <div>
+                <div class="div_flex">
+                    @Html.LabelFor(g => g.Email)
+                    @Html.ValidationMessageFor(g => g.Email, "", new { @class = "text-danger" })
                 </div>
+                @Html.EditorFor(g => g.Email, new { htmlAttributes = new { @class = "textbox" } })
+            </div>
 
-                <div>
-                    <div class="div_flex">
-                        @Html.LabelFor(g => g.Password)
-                        @Html.ValidationMessageFor(g => g.Password, "", new { @class = "text-danger" })
-                    </div>
-                    @Html.PasswordFor(g => g.Password, new { @class = "textbox" })
+            <div>
+                <div class="div_flex">
+                    @Html.LabelFor(g => g.Password)
+                    @Html.ValidationMessageFor(g => g.Password, "", new { @class = "text-danger" })
                 </div>
+                @Html.PasswordFor(g => g.Password, new { @class = "textbox" })
+            </div>
 
-                <div>
-                    <div class="div_flex">
-                        @Html.LabelFor(g => g.ConfirmPassword)
-                        @Html.ValidationMessageFor(g => g.ConfirmPassword, "", new { @class = "text-danger" })
-                    </div>
-                    @Html.PasswordFor(g => g.ConfirmPassword, new { @class = "textbox" })
+            <div>
+                <div class="div_flex">
+                    @Html.LabelFor(g => g.ConfirmPassword)
+                    @Html.ValidationMessageFor(g => g.ConfirmPassword, "", new { @class = "text-danger" })
                 </div>
+                @Html.PasswordFor(g => g.ConfirmPassword, new { @class = "textbox" })
+            </div>
 
-                <div>
-                    <div class="div_flex">
-                        @Html.LabelFor(g => g.PhoneNo)
-                        @Html.ValidationMessageFor(g => g.PhoneNo, "", new { @class = "text-danger" })
-                    </div>
-                    @Html.EditorFor(g => g.PhoneNo, new { htmlAttributes = new { @class = "textbox" } })
+            <div>
+                <div class="div_flex">
+                    @Html.LabelFor(g => g.PhoneNo)
+                    @Html.ValidationMessageFor(g => g.PhoneNo, "", new { @class = "text-danger" })
                 </div>
+                @Html.EditorFor(g => g.PhoneNo, new { htmlAttributes = new { @class = "textbox" } })
+            </div>
 
+            <div>
                 <div>
-                    <div>
-                        <input type="submit" value="Create Account" class="submit" />
-                    </div>
+                    <input type="submit" value="Create Account" class="submit" />
                 </div>
             </div>
+            <p>
+                @Html.ActionLink("Already Registered? Click Here", "Login")
+            </p>
+        </div>
         }
     </panel>
 

@@ -79,29 +79,7 @@ namespace WebAndCloudCA.Controllers
                     ViewBag.Status = "Error " + dao.message;
                 }
             }
-            //return RedirectToAction("Booking", "Booking");
             return View();
-
-            //ModelState.Clear();
-            //return RedirectToAction("Booking", "Booking");
-
-            //using (SqlConnection conn = new SqlConnection())
-            //{
-            //    var user = conn.Guest.Single(g => g.Email == db.Email && g.Password == db.Password);
-            //    if (user != null)
-            //    {
-            //        Session["GuestId"] = user.GuestId.ToString();
-            //        Session["GuestName"] = user.GuestName.ToString();
-            //        return RedirectToAction("AccountDetails", "AccountDetails");
-            //    }
-            //    else
-            //    {
-            //        ModelState.AddModelError("", "Username or Password are incorrect");
-            //    }
-            //}
-
-
-
         }
 
         public  ActionResult Logout()
