@@ -34,7 +34,7 @@ namespace WebAndCloudCA.Controllers
         {
             int count = 0;
             if (ModelState.IsValid)
-            {                
+            {
                 count = dao.AddGuest(register);
                 if (count > 0)
                 {
@@ -51,19 +51,6 @@ namespace WebAndCloudCA.Controllers
             {
                 return View(register);
             }
-            ////NOTE: Complete when Database is created
-            //if (ModelState.IsValid)
-            //{
-            //    //    using (Database db)
-            //    //    {
-            //    //        db.Guest.Add(guest);
-            //    //        db.SaveChanges();
-            //              ModelState.Clear();
-            //    //        guest=null;
-            //              ViewBag.Message = "Registration Successful.";
-            //    //}
-            //}
-            //return View();
         }
 
 

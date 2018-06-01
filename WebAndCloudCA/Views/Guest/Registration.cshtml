@@ -59,7 +59,7 @@
                     @Html.LabelFor(model => model.Guest.Password)
                     @Html.ValidationMessageFor(model => model.Guest.Password, "", new { @class = "text-danger" })
                 </div>
-                @Html.EditorFor(model => model.Guest.Password, new { htmlAttributes = new { @class = "textbox" } })
+                @Html.PasswordFor(model => model.Guest.Password, new { @class = "textbox" })
             </div>
 
             <div>
@@ -67,7 +67,7 @@
                     @Html.LabelFor(model => model.Guest.ConfirmPassword)
                     @Html.ValidationMessageFor(model => model.Guest.ConfirmPassword, "", new { @class = "text-danger" })
                 </div>
-                @Html.EditorFor(model => model.Guest.ConfirmPassword, new { htmlAttributes = new { @class = "textbox" } })
+                @Html.PasswordFor(model => model.Guest.ConfirmPassword, new { @class = "textbox" })
             </div>
 
             <div>

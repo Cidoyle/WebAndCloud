@@ -1,0 +1,44 @@
+﻿@model WebAndCloudCA.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<panel class="reg_form">
+
+    @using (Html.BeginForm("Login", "Guest", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="reg_column">
+
+            @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+            @Html.ValidationSummary(true, "Login failed. Please check your login details.", new { @class = "text-danger" })
+            <div>
+                <div class="div_flex">
+                    @Html.LabelFor(l => l.ValEmail)
+                    @Html.ValidationMessageFor(l => l.ValEmail, "", new { @class = "text-danger" })
+                </div>
+                @Html.EditorFor(l => l.ValEmail, new { htmlAttributes = new { @class = "textbox" } })
+            </div>
+
+            <div>
+                <div class="div_flex">
+                    @Html.LabelFor(l => l.ValPassword)
+                    @Html.ValidationMessageFor(l => l.ValPassword, "", new { @class = "text-danger" })
+                </div>
+                @Html.PasswordFor(l => l.ValPassword, new { @class = "textbox" })
+            </div>
+
+            <div>
+                <div>
+                    <input type="submit" value="Sign In" class="submit" />
+                </div>
+            </div>
+        </div>
+    }
+</panel>
+
+
