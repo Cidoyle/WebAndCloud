@@ -87,5 +87,26 @@ namespace WebAndCloudCA.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Guest");
         }
+
+        //Get
+        public ActionResult AccountDetails(Guest guest)
+        {
+            Session["GuestId"] = guest.GuestId;
+            return View();
+
+        }
+
+        //Get
+        public ActionResult EditDetails()
+        { 
+           return View();
+        }
+
+        //[HttpPost]
+        //public ActionResult EditDetails(Guest guest)
+        //{
+        //    //dao.EditGuest(guest);
+        //    //return View();
+        //}
     }
 }

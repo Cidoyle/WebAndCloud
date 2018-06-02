@@ -9,24 +9,26 @@ namespace WebAndCloudCA.Controllers
 {
     public class BookingController : Controller
     {
+        DAO dao = new DAO();
         // GET: Booking
         public ActionResult Booking()
         {
-            //if (Session["GuestId"] != null)
-            //{
-            //    return View();
-            //}
-            //else
-            //{
-            //    return RedirectToAction("Login");
-            //}      
             return View();
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Booking(Booking booked)
-        { 
-            return RedirectToAction ("BookingDetails");
+        {
+            if (ModelState.IsValid)
+            {
+
+                return RedirectToAction("BookingDetails", "BookingDetails");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

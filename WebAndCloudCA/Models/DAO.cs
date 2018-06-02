@@ -96,11 +96,35 @@ namespace WebAndCloudCA.Models
             return firstName;
         }
 
-        //public int EditGuest(MyAccountViewModel guest)
-        //{
-        //   SqlCommand cmd = new SqlCommand("uspEditGuest", conn);
-        //cmd.CommandType = CommandType.StoredProcedure;
-        //}
+        public int EditGuest(Guest guest)
+        {
+            string password;
+            int count = 0;
+            SqlCommand cmd = new SqlCommand("uspEditDetails", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@GuestId", guest.GuestId);
+            cmd.Parameters.AddWithValue("@FirstName", guest.FirstName);
+            cmd.Parameters.AddWithValue("@LastName", guest.LastName);
+            cmd.Parameters.AddWithValue("@Email", guest.Email);
+            password = Crypto.HashPassword(guest.Password);
+            cmd.Parameters.AddWithValue("@Password", password);
+            cmd.Parameters.AddWithValue("@Phone", guest.PhoneNo);
+
+            try
+            {
+                conn.Open();
+                count = cmd.ExecuteNonQuery();
+            }
+            catch (SystemException ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return count;
+        }
 
         #endregion
 

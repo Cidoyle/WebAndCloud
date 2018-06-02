@@ -9,15 +9,18 @@ namespace WebAndCloudCA.Controllers
 {
     public class AccountDetailsController : Controller
     {
+        DAO dao = new DAO();
         // GET: AccountDetails
-        public ActionResult AccountDetails()
+        public ActionResult AccountDetails(Guest guest)
         {
+            Session["GuestId"] = guest.GuestId;
             return View();
                 
         }
 
-        public ActionResult EditDetails()
+        public ActionResult EditDetails(int  id)
         {
+            
             return View();
         }
 
