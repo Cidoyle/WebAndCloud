@@ -13,21 +13,23 @@ namespace WebAndCloudCA.Controllers
         // GET: AccountDetails
         public ActionResult AccountDetails(Guest guest)
         {
-            Session["GuestId"] = guest.GuestId;
-            return View();
-                
+            guest.Email = Session["email"].ToString();
+       
+            dao.ShowGuestDetails(guest);
+
+            return View(guest);             
         }
 
         public ActionResult EditDetails()
-        {
-            
+        {           
             return View();
         }
 
         [HttpPost]
         public ActionResult EditDetails(Guest guest)
         {
-            return View();
+            dao.EditGuest(guest);
+            return View(guest);
         }
     }
 }
