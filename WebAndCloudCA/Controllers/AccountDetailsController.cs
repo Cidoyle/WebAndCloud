@@ -13,23 +13,28 @@ namespace WebAndCloudCA.Controllers
         // GET: AccountDetails
         public ActionResult AccountDetails(Guest guest)
         {
-            guest.Email = Session["email"].ToString();
-       
+            guest.Email = Session["email"].ToString();      
             dao.ShowGuestDetails(guest);
-
             return View(guest);             
         }
 
-        public ActionResult EditDetails()
-        {           
-            return View();
-        }
-
-        [HttpPost]
         public ActionResult EditDetails(Guest guest)
         {
-            dao.EditGuest(guest);
+            guest.Email = Session["email"].ToString();
+            dao.ShowGuestDetails(guest);
             return View(guest);
         }
+
+        /*[HttpPost]
+        public ActionResult EditDetails(Guest guest)
+        {
+            if (ModelState.IsValid)
+            {
+                guest.Email = Session["email"].ToString();
+                dao.EditGuest(guest);
+                return RedirectToAction("AccountDetails");
+            }
+            return View();
+        }*/
     }
 }

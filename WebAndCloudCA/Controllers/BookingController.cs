@@ -11,7 +11,7 @@ namespace WebAndCloudCA.Controllers
     {
         DAO dao = new DAO();
         // GET: Booking
-        public ActionResult Booking()
+        public ActionResult Booking(Guest guest)
         {
             return View();
         }

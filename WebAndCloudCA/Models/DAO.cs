@@ -113,6 +113,7 @@ namespace WebAndCloudCA.Models
                     guest.FirstName = reader["FirstName"].ToString();
                     guest.LastName = reader["LastName"].ToString();
                     guest.Email = reader["Email"].ToString();
+                    guest.Password = reader["Password"].ToString();
                     guest.PhoneNo = reader["PhoneNo"].ToString();         
                 }
 
@@ -130,7 +131,7 @@ namespace WebAndCloudCA.Models
 
         public int EditGuest(Guest guest)
         {
-            string password;
+            //string password;
             int count = 0;
             SqlCommand cmd = new SqlCommand("uspEditDetails", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -138,8 +139,8 @@ namespace WebAndCloudCA.Models
             cmd.Parameters.AddWithValue("@FirstName", guest.FirstName);
             cmd.Parameters.AddWithValue("@LastName", guest.LastName);
             cmd.Parameters.AddWithValue("@Email", guest.Email);
-            password = Crypto.HashPassword(guest.Password);
-            cmd.Parameters.AddWithValue("@Password", password);
+            //password = Crypto.HashPassword(guest.Password);
+            //cmd.Parameters.AddWithValue("@Password", password);
             cmd.Parameters.AddWithValue("@Phone", guest.PhoneNo);
 
             try
@@ -160,6 +161,7 @@ namespace WebAndCloudCA.Models
 
         #endregion
 
+        #region Booking
         public int AddBooking (Booking booking)
         {
             int count = 0;
@@ -186,5 +188,6 @@ namespace WebAndCloudCA.Models
             }
             return count;
         }
+        #endregion
     }
 }
