@@ -13,19 +13,55 @@ namespace WebAndCloudCA.Models
     public class DAO
     {
         SqlConnection conn;
-
         public string message;
 
         #region constructor
-
         public DAO()
         {
             conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["conString"].ConnectionString);
         }
-
         #endregion
 
+        #region Rooms
+        public List<Room> ShowAllRooms()
+        {
+            List<Room> roomList = new List<Room>();
 
+            SqlDataReader reader;
+            //Creating an instance of SqlCommand 
+            SqlCommand cmd;
+            //Intialising SqlCommand
+            cmd = new SqlCommand("uspAllRooms", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Room room = new Room();
+                    room.RoomId = int.Parse(reader["RoomId"].ToString());
+                    room.RoomAddress = reader["Address"].ToString();
+                    room.Price = decimal.Parse(reader["RoomPrice"].ToString());
+                    room.NoOfGuests = int.Parse(reader["NumberOfGuests"].ToString());
+                    room.CountyList = (County)Enum.Parse(typeof(County), reader["Address"].ToString());
+                    room.RoomImage = reader["RoomImage"].ToString();
+                    roomList.Add(room);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return roomList;
+        }
+        #endregion
+        
         #region Guest
         //Add Guest to DB via Registration
         public int AddGuest(Guest guest)
@@ -94,11 +130,9 @@ namespace WebAndCloudCA.Models
                 conn.Close();
             }
             return firstName;
-        }
+        }    
 
-    
-
-    public int EditGuest(Guest guest)
+        public int EditGuest(Guest guest)
         {
             string password;
             int count = 0;
@@ -127,9 +161,9 @@ namespace WebAndCloudCA.Models
             }
             return count;
         }
-
         #endregion
 
+        #region Booking
         public int AddBooking (Booking booking)
         {
             int count = 0;
@@ -156,5 +190,6 @@ namespace WebAndCloudCA.Models
             }
             return count;
         }
+        #endregion
     }
 }
