@@ -38,6 +38,7 @@ namespace WebAndCloudCA.Controllers
                 count = dao.AddGuest(register);
                 if (count > 0)
                 {
+                    
                     ViewBag.Message = "Registration Successful";
                 }
                 else
@@ -53,12 +54,10 @@ namespace WebAndCloudCA.Controllers
             }
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(Guest guest)
         {
-            ModelState.Remove("GuestId");
             ModelState.Remove("FirstName");
             ModelState.Remove("LastName");
             ModelState.Remove("Name");
@@ -82,7 +81,7 @@ namespace WebAndCloudCA.Controllers
             return View();
         }
 
-        public  ActionResult Logout()
+        public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Guest");

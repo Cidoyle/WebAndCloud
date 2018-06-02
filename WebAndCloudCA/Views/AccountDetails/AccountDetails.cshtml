@@ -4,8 +4,8 @@
     ViewBag.Title = "AccountDetails";
 }
 
-@*@if (Session["GuestID"] != null)
-{*@
+@if (Session["GuestId"] != null)
+{
 
 <nav class="account nav">
     <ul class="container">
@@ -18,38 +18,45 @@
 <h2>Account Details</h2>
 
 <div>
-    <h4>Welcome @Html.DisplayFor(model => model.Name)</h4>
+    <h4>Welcome @Session["name"]</h4>
     <hr />
     <dl class="dl-horizontal">
-        
+
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(g => g.GuestId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(g => g.GuestId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(g => g.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(g => g.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(g => g.Email)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Email)
+            @Html.DisplayFor(g => g.Email)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PhoneNo)
+            @Html.DisplayNameFor(g => g.PhoneNo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PhoneNo)
+            @Html.DisplayFor(g => g.PhoneNo)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit Details", "EditDetails", "AccountDetails")@* new { id = Model.GuestId })*@
+    @Html.ActionLink("Edit Details", "EditDetails", "AccountDetails")
     @Html.ActionLink("Back to List", "Index")
 </p>
-@*}*@
+}

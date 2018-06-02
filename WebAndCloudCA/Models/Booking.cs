@@ -23,5 +23,9 @@ namespace WebAndCloudCA.Models
         [Display(Name = "Number Of Guests")]
         [Required]
         public int NumberOfGuests { get; set; }
+        
+        public Guest Guest { get; set; }
+
+        public Room Room { get; set; }
     }
 }
