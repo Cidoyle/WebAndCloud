@@ -6,10 +6,12 @@
     ViewBag.Title = "Registration";
 }
 
-<h1 class="line1 headline reg_display">
+@*<h1 class="line1 headline reg_display">
     <span class="col_rborder">Register New Account</span>
     <span>Log in</span>
-</h1>
+</h1>*@
+<h1 class="line1 headline">Register New Account</h1>
+
 @ViewBag.Message
 <section class="reg_display">
 
@@ -76,9 +78,9 @@
                     <input type="submit" value="Create Account" class="submit" />
                 </div>
             </div>
-            <p>
+            @*<p>
                 @Html.ActionLink("Already Registered? Click Here", "Login")
-            </p>
+            </p>*@
         </div>
         }
     </panel>
