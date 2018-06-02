@@ -96,7 +96,9 @@ namespace WebAndCloudCA.Models
             return firstName;
         }
 
-        public int EditGuest(Guest guest)
+    
+
+    public int EditGuest(Guest guest)
         {
             string password;
             int count = 0;
@@ -136,6 +138,8 @@ namespace WebAndCloudCA.Models
             cmd.Parameters.AddWithValue("@arrival", booking.ArrivalDate);
             cmd.Parameters.AddWithValue("@departure", booking.DepartureDate);
             cmd.Parameters.AddWithValue("@noOfGuests", booking.NumberOfGuests);
+            cmd.Parameters.AddWithValue("@guestId", booking.Guest.GuestId);
+            cmd.Parameters.AddWithValue("@roomId", booking.Room.RoomId);
 
             try
             {

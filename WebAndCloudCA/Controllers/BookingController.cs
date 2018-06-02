@@ -20,15 +20,25 @@ namespace WebAndCloudCA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Booking(Booking booked)
         {
+            int count = 0;
             if (ModelState.IsValid)
             {
-
-                return RedirectToAction("BookingDetails", "BookingDetails");
+                count = dao.AddBooking(booked);
+                if (count > 0)
+                {
+                    return RedirectToAction("BookingDetails", "BookingDetails");
+                }
+                else
+                {
+                    ViewBag.Message = "Error " + dao.message;
+                }
+                return View();
             }
             else
             {
                 return View();
-            }
-        }
-    }
+            }           
+    
 }
+    }
+        }

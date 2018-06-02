@@ -18,7 +18,7 @@ namespace WebAndCloudCA.Controllers
                 
         }
 
-        public ActionResult EditDetails(int  id)
+        public ActionResult EditDetails()
         {
             
             return View();

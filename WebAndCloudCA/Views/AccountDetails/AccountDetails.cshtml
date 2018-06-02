@@ -18,11 +18,17 @@
 <h2>Account Details</h2>
 
 <div>
-    <h4>Welcome @Html.DisplayFor(g => g.Name)</h4>
-    <h3>@Session["GuestId"]</h3>
+    <h4>Welcome @Session["name"]</h4>
     <hr />
     <dl class="dl-horizontal">
 
+        <dt>
+            @Html.DisplayNameFor(g => g.GuestId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(g => g.GuestId)
+        </dd>
         <dt>
             @Html.DisplayNameFor(g => g.Name)
         </dt>
