@@ -130,7 +130,39 @@ namespace WebAndCloudCA.Models
                 conn.Close();
             }
             return firstName;
-        }    
+        }
+
+        public void ShowGuestDetails(Guest guest)
+        {
+            SqlDataReader reader;
+            SqlCommand cmd = new SqlCommand("uspGetGuestDetails", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@email", guest.Email);
+            try
+            {
+                conn.Open();
+
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    guest.GuestId = int.Parse(reader["GuestId"].ToString());
+                    guest.FirstName = reader["FirstName"].ToString();
+                    guest.LastName = reader["LastName"].ToString();
+                    guest.Email = reader["Email"].ToString();
+                    guest.PhoneNo = reader["PhoneNo"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
 
         public int EditGuest(Guest guest)
         {
