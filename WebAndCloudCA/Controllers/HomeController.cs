@@ -20,8 +20,8 @@ namespace WebAndCloudCA.Controllers
         public ActionResult Search(SearchViewModel countyList, SearchViewModel arrivalDate, SearchViewModel departureDate, SearchViewModel
             noOfGuests)
         {
-            //return View(db.Rooms.Where(s => s.CountyList == Rooms.CountyList ) &&
-            //(db.Rooms.Where(s => s.NoOfGuests == Rooms.noOfGuests))
+            //return View(db.Rooms.Where(s => s.CountyList == Rooms.CountyList) &&
+            //(db.Rooms.Where(s => s.NoOfGuests == Rooms.NumberOfBeds))
                 return RedirectToAction("Rooms", "Rooms");
         }
 

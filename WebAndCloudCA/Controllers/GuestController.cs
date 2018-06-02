@@ -7,8 +7,8 @@ using System.Web.Security;
 using WebAndCloudCA.Models;
 using WebAndCloudCA.ViewModels;
 using System.Data.SqlClient;
-
-
+using System.Linq.Expressions;
+using System.Web.Helpers;
 
 namespace WebAndCloudCA.Controllers
 {
@@ -22,7 +22,7 @@ namespace WebAndCloudCA.Controllers
             return View();
         }
 
-        //Login - no view related, need to figure out if need it. Maybe partial view?
+        //Maybe partial view?
         public ActionResult Login()
         {
             return View();
@@ -30,11 +30,11 @@ namespace WebAndCloudCA.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Registration(MyAccountViewModel register)
+        public ActionResult Registration(Guest register)
         {
             int count = 0;
             if (ModelState.IsValid)
-            {                
+            {
                 count = dao.AddGuest(register);
                 if (count > 0)
                 {
@@ -51,43 +51,35 @@ namespace WebAndCloudCA.Controllers
             {
                 return View(register);
             }
-            ////NOTE: Complete when Database is created
-            //if (ModelState.IsValid)
-            //{
-            //    //    using (Database db)
-            //    //    {
-            //    //        db.Guest.Add(guest);
-            //    //        db.SaveChanges();
-            //              ModelState.Clear();
-            //    //        guest=null;
-            //              ViewBag.Message = "Registration Successful.";
-            //    //}
-            //}
-            //return View();
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(MyAccountViewModel login)
+        public ActionResult Login(Guest guest)
         {
-            
-            //using (Database db)
-            //{
-            //    var user = db.Guest.Single(g => g.Name == db.Name && g.Password == db.Password);
-            //    if (user != null)
-            //    {
-            //        Session["GuestID"] = user.GuestId.ToString();
-            //        Session["GuestName"] = user.GuestName.ToString();
-            //        return RedirectToAction("AccountDetails", "AccountDetails");
-            //    }
-            //    else
-            //    {
-            //        ModelState.AddModelError("", "Username or Password are incorrect");
-            //    }
-            //}
-            ModelState.Clear();
-            return RedirectToAction("Booking", "Booking");
+            ModelState.Remove("GuestId");
+            ModelState.Remove("FirstName");
+            ModelState.Remove("LastName");
+            ModelState.Remove("Name");
+            ModelState.Remove("ConfirmPassword");
+            ModelState.Remove("Phone");
+            if (ModelState.IsValid)
+            {
+                guest.FirstName = dao.CheckLogin(guest);
+                if (guest.FirstName != null)
+                {
+                    Session.Add("name", guest.FirstName);
+                    Session["name"] = guest.FirstName;
+                    Session["email"] = guest.Email;
+                    return RedirectToAction("Booking", "Booking");
+                }
+                else
+                {
+                    ViewBag.Status = "Error " + dao.message;
+                }
+            }
+            return View();
         }
 
         public  ActionResult Logout()

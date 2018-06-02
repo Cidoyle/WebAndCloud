@@ -8,9 +8,8 @@ namespace WebAndCloudCA.Models
     public enum County
     {
         Dublin =  1,
-        Cork,
         Galway,
-        Wexford,
-        Clare
+        Clare,
+        Donegal
     }
 }
