@@ -11,11 +11,12 @@ namespace WebAndCloudCA.Controllers
     {
         // GET: Rooms
         DAO dao = new DAO();
+        
 
         public ActionResult Rooms()
         {
-            //List<Room> roomList = dao.ShowAllRooms();
-            return View(dao.ShowAllRooms());
+            List<Room> roomList = dao.ShowAllRooms();
+            return View(roomList);
         }
     }
 }

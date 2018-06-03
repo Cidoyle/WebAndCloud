@@ -44,7 +44,7 @@ namespace WebAndCloudCA.Models
                     room.RoomAddress = reader["Address"].ToString();
                     room.Price = decimal.Parse(reader["RoomPrice"].ToString());
                     room.NoOfGuests = int.Parse(reader["NumberOfGuests"].ToString());
-                    room.CountyList = (County)Enum.Parse(typeof(County), reader["Address"].ToString());
+                    room.CountyList = (County)Enum.Parse(typeof(County), reader["County"].ToString());
                     room.RoomImage = reader["RoomImage"].ToString();
                     roomList.Add(room);
                 }

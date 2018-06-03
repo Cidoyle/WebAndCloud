@@ -11,6 +11,8 @@
 
     @foreach (var room in Model)
     {
+        //using (Html.BeginForm("Rooms", "Rooms", FormMethod.Post))
+        //{
         <div class="rooms_container">
             <div class="rooms_container_rightimage">
                 <div class="rooms_desc_column rightmargin">
@@ -56,7 +58,7 @@
                 <h1>&euro;@room.Price&nbsp;<span>/per night</span></h1>
             </div>
         </div>
-
+        @*}*@
 
         @*<div class="rooms_container">
             <div class="rooms_container_leftimage">
