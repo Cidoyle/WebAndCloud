@@ -10,23 +10,36 @@ namespace WebAndCloudCA.Models
     {
         public int RoomId { get; set; }
 
-        [Display(Name ="Room Name")]
+        [Display(Name ="Address")]
         [Required]
-        public string RoomName { get; set; }
+        public string RoomAddress { get; set; }
+
+        public decimal Price { get; set; }
 
         [Required]
-        public byte[] RoomImage { get; set; }
-
-        [Display(Name = "Room Type")]
+        public string RoomImage { get; set; }
+                
+        [Display(Name = "Number of Guests")]
         [Required]
-        public RoomType RoomType { get; set; }
-
-        [Display(Name = "Number of Beds")]
-        [Required]
-        public int NoOfBeds { get; set; }
+        public int NoOfGuests { get; set; }
 
         [Display(Name = "County")]
         [Required]
         public County CountyList { get; set; }
+
+
+        public Room() { }
+        public Room(int roomId, string address, string image, int guests, County county)
+        {
+            RoomId = roomId;
+            RoomAddress = address;
+            RoomImage = image;
+            NoOfGuests = guests;
+            CountyList = county;
+        }
     }
+
+    
+
+
 }

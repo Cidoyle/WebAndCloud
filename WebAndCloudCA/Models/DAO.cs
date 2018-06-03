@@ -13,19 +13,55 @@ namespace WebAndCloudCA.Models
     public class DAO
     {
         SqlConnection conn;
-
         public string message;
 
         #region constructor
-
         public DAO()
         {
             conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["conString"].ConnectionString);
         }
-
         #endregion
 
+        #region Rooms
+        public List<Room> ShowAllRooms()
+        {
+            List<Room> roomList = new List<Room>();
 
+            SqlDataReader reader;
+            //Creating an instance of SqlCommand 
+            SqlCommand cmd;
+            //Intialising SqlCommand
+            cmd = new SqlCommand("uspAllRooms", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Room room = new Room();
+                    room.RoomId = int.Parse(reader["RoomId"].ToString());
+                    room.RoomAddress = reader["Address"].ToString();
+                    room.Price = decimal.Parse(reader["RoomPrice"].ToString());
+                    room.NoOfGuests = int.Parse(reader["NumberOfGuests"].ToString());
+                    room.CountyList = (County)Enum.Parse(typeof(County), reader["Address"].ToString());
+                    room.RoomImage = reader["RoomImage"].ToString();
+                    roomList.Add(room);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return roomList;
+        }
+        #endregion
+        
         #region Guest
         //Add Guest to DB via Registration
         public int AddGuest(Guest guest)
@@ -113,8 +149,7 @@ namespace WebAndCloudCA.Models
                     guest.FirstName = reader["FirstName"].ToString();
                     guest.LastName = reader["LastName"].ToString();
                     guest.Email = reader["Email"].ToString();
-                    guest.Password = reader["Password"].ToString();
-                    guest.PhoneNo = reader["PhoneNo"].ToString();         
+                    guest.PhoneNo = reader["PhoneNo"].ToString();
                 }
 
             }
@@ -131,7 +166,7 @@ namespace WebAndCloudCA.Models
 
         public int EditGuest(Guest guest)
         {
-            //string password;
+            string password;
             int count = 0;
             SqlCommand cmd = new SqlCommand("uspEditDetails", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -139,8 +174,8 @@ namespace WebAndCloudCA.Models
             cmd.Parameters.AddWithValue("@FirstName", guest.FirstName);
             cmd.Parameters.AddWithValue("@LastName", guest.LastName);
             cmd.Parameters.AddWithValue("@Email", guest.Email);
-            //password = Crypto.HashPassword(guest.Password);
-            //cmd.Parameters.AddWithValue("@Password", password);
+            password = Crypto.HashPassword(guest.Password);
+            cmd.Parameters.AddWithValue("@Password", password);
             cmd.Parameters.AddWithValue("@Phone", guest.PhoneNo);
 
             try
@@ -158,7 +193,6 @@ namespace WebAndCloudCA.Models
             }
             return count;
         }
-
         #endregion
 
         #region Booking
