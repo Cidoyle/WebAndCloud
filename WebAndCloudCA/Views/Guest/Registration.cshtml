@@ -78,45 +78,10 @@
                     <input type="submit" value="Create Account" class="submit" />
                 </div>
             </div>
-            @*<p>
-                @Html.ActionLink("Already Registered? Click Here", "Login")
-            </p>*@
+            <p>
+                @Html.ActionLink("Sign In", "Login")
+            </p>
         </div>
         }
     </panel>
-
-    @*<panel class="reg_form">
-
-            @using (Html.BeginForm("Login", "Guest", FormMethod.Post))
-            {
-                @Html.AntiForgeryToken()
-
-            <div class="reg_column">
-
-        @Html.ValidationSummary(true, "Login failed. Please check your login details.", new { @class = "text-danger" })
-                <div>
-                    <div class="div_flex">
-                        @Html.LabelFor(g => g.Email)
-                        @Html.ValidationMessageFor(g => g.Email, "", new { @class = "text-danger" })
-                    </div>
-                    @Html.EditorFor(g => g.Email, new { htmlAttributes = new { @class = "textbox" } })
-                </div>
-
-                <div>
-                    <div class="div_flex">
-                        @Html.LabelFor(g => g.Password)
-                        @Html.ValidationMessageFor(g => g.Password, "", new { @class = "text-danger" })
-                    </div>
-                    @Html.EditorFor(g => g.Password, new { htmlAttributes = new { @class = "textbox" } })
-                </div>
-
-                <div>
-                    <div>
-                        <input type="submit" value="Sign In" class="submit" />
-                    </div>
-                </div>
-                </div>
-                }
-                </panel>*@
-
 </section>

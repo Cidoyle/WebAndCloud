@@ -18,8 +18,9 @@ namespace WebAndCloudCA.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Booking(Booking booked)
+        public ActionResult Booking(Booking booked, Guest guest, Room room)
         {
+            
             int count = 0;
             if (ModelState.IsValid)
             {
