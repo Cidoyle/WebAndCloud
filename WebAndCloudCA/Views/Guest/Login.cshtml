@@ -7,11 +7,11 @@
 <h1 class="line1 headline">Sign in</h1>
 
 <panel class="form">
-
+    @TempData["Success"]
     @using (Html.BeginForm("Login", "Guest", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-                
+
         @Html.ValidationSummary(true, "Login failed. Please check your login details.", new { @class = "text-danger-summary" })
         <div>
             <div class="div_flex">
@@ -28,14 +28,14 @@
             </div>
             @Html.PasswordFor(l => l.Password, new { @class = "textbox" })
         </div>
-        
+
         <div>
             <input type="submit" value="Sign In" class="submit" />
         </div>
-        
+
         <div>
             @Html.ActionLink("Not Registered? Click Here", "Registration")
-        </div>    
+        </div>
     }
 </panel>
 

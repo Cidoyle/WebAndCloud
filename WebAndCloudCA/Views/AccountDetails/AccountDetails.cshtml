@@ -21,7 +21,7 @@
         <h4>Welcome @Session["name"]</h4>
         <hr />
         <dl class="dl-horizontal">
-
+            @TempData["updated"]
             <dt>
                 @Html.DisplayNameFor(g => g.GuestId)
             </dt>
@@ -57,10 +57,16 @@
         </dl>
     </div>
 }
+@{ 
+    if (TempData["message"] != null)
+    {
+        <script>alert('@TempData["message"]')</script>
+    }
+}
 
     <p>
         @Html.ActionLink("Edit Details", "EditDetails", "AccountDetails")
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Delete Account", "DeleteAccount")
     </p>
 
 

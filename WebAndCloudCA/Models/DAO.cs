@@ -206,11 +206,11 @@ namespace WebAndCloudCA.Models
             return count;
         }
 
-        public void DeleteGuest(int id)
+        public void DeleteGuest(Guest guest)
         {
             SqlCommand cmd = new SqlCommand("uspDeleteGuest", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@GuestId", id);
+            cmd.Parameters.AddWithValue("@email", guest.Email);
             try
             {
                 conn.Open();

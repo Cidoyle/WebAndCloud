@@ -40,6 +40,7 @@ namespace WebAndCloudCA.Controllers
                 count = dao.EditGuest(guest);
                 if (count > 0)
                 {
+                    TempData["updated"] = "Details Successfully Updated";
                     return RedirectToAction("AccountDetails", "AccountDetails");
                 }
                 else
@@ -53,6 +54,15 @@ namespace WebAndCloudCA.Controllers
             {
                 return View(guest);
             }
+        }
+
+        public ActionResult DeleteAccount(Guest guest)
+        {
+            guest.Email = Session["email"].ToString();
+            dao.DeleteGuest(guest);
+            TempData["message"] = "Account Deleted";
+            return View(guest);
+
         }
     }
 }

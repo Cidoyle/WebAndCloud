@@ -38,8 +38,9 @@ namespace WebAndCloudCA.Controllers
                 count = dao.AddGuest(register);
                 if (count > 0)
                 {
-                    
-                    ViewBag.Message = "Registration Successful";
+                    TempData["success"] = "Registration Successful. Please Login.";
+                    return RedirectToAction("Login", "Guest");
+                    //ViewBag.Message = "Registration Successful";
                 }
                 else
                 {
