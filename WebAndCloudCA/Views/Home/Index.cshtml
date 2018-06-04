@@ -5,57 +5,44 @@
     ViewBag.Title = "Index";
 }
 
-<!DOCTYPE html>
+<panel class="form">
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    <link rel="stylesheet" href="~/Content/Styles.css" type="text/css" />
-</head>
-<body>
-
-    <panel class="form">
-
-        @using (Html.BeginForm("Search", "Home", FormMethod.Post))
-        {
-            @Html.AntiForgeryToken()
+    @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
                         
-            @Html.ValidationSummary(true, "", new { @class = "text-danger-summary" })
+        @Html.ValidationSummary(true, "", new { @class = "text-danger-summary" })
+        <div>
+            <div class="div_flex">                    
+                <label class="label_float">Where do you want to go? </label>
+                @Html.ValidationMessageFor(model => model.Room.CountyList, "", new { @class = "text-danger" })
+            </div>
+            @Html.EnumDropDownListFor(model => model.Room.CountyList, "Select County", new { @class = "textbox" })
+                
+            <div class="div_flex">                    
+                @Html.LabelFor(model => model.Booking.ArrivalDate, new { @class = "label_float" })
+                @Html.ValidationMessageFor(model => model.Booking.ArrivalDate, "", new { @class = "text-danger" })
+            </div>
+            <input class="textbox" type="date" name="txtCheckin" />
+                
+            <div class="div_flex">                    
+                @Html.LabelFor(model => model.Booking.DepartureDate, new { @class = "label_float" })
+                @Html.ValidationMessageFor(model => model.Booking.DepartureDate, "", new { @class = "text-danger" })
+            </div>
+            <input class="textbox" type="date" name="txtCheckOut" />
+                
+            <div class="div_flex">                    
+                @Html.LabelFor(model => model.Booking.NumberOfGuests, new { @class = "label_float" })
+                @Html.ValidationMessageFor(model => model.Booking.NumberOfGuests, "", new { @class = "text-danger" })
+            </div>
+            <input class="textbox" type="number" name="numGuests" min="1" max="4" />                
+                
             <div>
-                <div class="div_flex">                    
-                    <label class="label_float">Where do you want to go? </label>
-                    @Html.ValidationMessageFor(model => model.Room.CountyList, "", new { @class = "text-danger" })
-                </div>
-                @Html.EnumDropDownListFor(model => model.Room.CountyList, "Select County", new { @class = "textbox" })
-                
-                <div class="div_flex">                    
-                    @Html.LabelFor(model => model.Booking.ArrivalDate, new { @class = "label_float" })
-                    @Html.ValidationMessageFor(model => model.Booking.ArrivalDate, "", new { @class = "text-danger" })
-                </div>
-                <input class="textbox" type="date" name="txtCheckin" />
-                
-                <div class="div_flex">                    
-                    @Html.LabelFor(model => model.Booking.DepartureDate, new { @class = "label_float" })
-                    @Html.ValidationMessageFor(model => model.Booking.DepartureDate, "", new { @class = "text-danger" })
-                </div>
-                <input class="textbox" type="date" name="txtCheckOut" />
-                
-                <div class="div_flex">                    
-                    @Html.LabelFor(model => model.Booking.NumberOfGuests, new { @class = "label_float" })
-                    @Html.ValidationMessageFor(model => model.Booking.NumberOfGuests, "", new { @class = "text-danger" })
-                </div>
-                <input class="textbox" type="number" name="numGuests" min="1" max="4" />                
-                
-                <div>
-                    <input  class="submit" id="Submit1" type="submit" value="Search" />
-                </div>
+                <input  class="submit" id="Submit1" type="submit" value="Search" />
+            </div>
                     
-            </div>            
-        }
-    </panel>
-
-</body>
-</html>
+        </div>            
+    }
+</panel>
 
 
