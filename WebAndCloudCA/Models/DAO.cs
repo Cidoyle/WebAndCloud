@@ -26,7 +26,7 @@ namespace WebAndCloudCA.Models
         public List<Room> ShowAllRooms()
         {
             List<Room> roomList = new List<Room>();
-
+            
             SqlDataReader reader;
             //Creating an instance of SqlCommand 
             SqlCommand cmd;
