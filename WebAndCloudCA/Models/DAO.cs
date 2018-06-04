@@ -164,19 +164,31 @@ namespace WebAndCloudCA.Models
 
         }
 
+        public DataSet ShowGuestById(int id)
+        {
+            SqlCommand cmd = new SqlCommand("uspGetGuestById", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@GuestId", id);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);           
+            return ds;
+
+        }
+
         public int EditGuest(Guest guest)
         {
             string password;
             int count = 0;
-            SqlCommand cmd = new SqlCommand("uspEditDetails", conn);
+            SqlCommand cmd = new SqlCommand("uspEditGuest", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@GuestId", guest.GuestId);
-            cmd.Parameters.AddWithValue("@FirstName", guest.FirstName);
-            cmd.Parameters.AddWithValue("@LastName", guest.LastName);
-            cmd.Parameters.AddWithValue("@Email", guest.Email);
-            password = Crypto.HashPassword(guest.Password);
-            cmd.Parameters.AddWithValue("@Password", password);
-            cmd.Parameters.AddWithValue("@Phone", guest.PhoneNo);
+            cmd.Parameters.AddWithValue("@guestId", guest.GuestId);
+            cmd.Parameters.AddWithValue("@firstName", guest.FirstName);
+            cmd.Parameters.AddWithValue("@lastName", guest.LastName);
+            cmd.Parameters.AddWithValue("@email", guest.Email);
+            //password = Crypto.HashPassword(guest.Password);
+            //cmd.Parameters.AddWithValue("@password", password);
+            cmd.Parameters.AddWithValue("@phone", guest.PhoneNo);
 
             try
             {
@@ -192,6 +204,27 @@ namespace WebAndCloudCA.Models
                 conn.Close();
             }
             return count;
+        }
+
+        public void DeleteGuest(int id)
+        {
+            SqlCommand cmd = new SqlCommand("uspDeleteGuest", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@GuestId", id);
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SystemException ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
         }
         #endregion
 
