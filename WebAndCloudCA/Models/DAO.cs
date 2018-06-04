@@ -237,8 +237,8 @@ namespace WebAndCloudCA.Models
             cmd.Parameters.AddWithValue("@arrival", booking.ArrivalDate);
             cmd.Parameters.AddWithValue("@departure", booking.DepartureDate);
             cmd.Parameters.AddWithValue("@noOfGuests", booking.NumberOfGuests);
-            cmd.Parameters.AddWithValue("@guestId", booking.Guest.GuestId);
-            cmd.Parameters.AddWithValue("@roomId", booking.Room.RoomId);
+            //cmd.Parameters.AddWithValue("@guestId", booking.Guest.GuestId);
+            //cmd.Parameters.AddWithValue("@roomId", booking.Room.RoomId);
 
             try
             {

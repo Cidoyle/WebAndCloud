@@ -22,7 +22,6 @@ namespace WebAndCloudCA.Controllers
             return View();
         }
 
-        //Maybe partial view?
         public ActionResult Login()
         {
             return View();
@@ -40,7 +39,6 @@ namespace WebAndCloudCA.Controllers
                 {
                     TempData["success"] = "Registration Successful. Please Login.";
                     return RedirectToAction("Login", "Guest");
-                    //ViewBag.Message = "Registration Successful";
                 }
                 else
                 {

@@ -11,14 +11,14 @@ namespace WebAndCloudCA.Controllers
     {
         DAO dao = new DAO();
         // GET: Booking
-        public ActionResult Booking(Guest guest)
-        {
+        public ActionResult Booking()
+        { 
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Booking(Booking booked, Guest guest, Room room)
+        public ActionResult Booking(Booking booked)
         {
             
             int count = 0;
@@ -27,7 +27,8 @@ namespace WebAndCloudCA.Controllers
                 count = dao.AddBooking(booked);
                 if (count > 0)
                 {
-                    return RedirectToAction("BookingDetails", "BookingDetails");
+                    ViewBag.Message = "Booking Successful";
+                   // return RedirectToAction("BookingDetails", "BookingDetails");
                 }
                 else
                 {

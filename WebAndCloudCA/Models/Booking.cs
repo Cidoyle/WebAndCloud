@@ -29,13 +29,13 @@ namespace WebAndCloudCA.Models
         [Display(Name ="Guest Id")]
         public int GuestId { get; set; }
 
-        [ForeignKey("GuestId")]
-        public virtual Guest Guest { get; set; }
+        //[ForeignKey("GuestId")]
+        //public virtual Guest Guest { get; set; }
 
         [Display(Name ="Room Id")]
         public int RoomId { get; set; }
 
-        [ForeignKey("RoomId")]
-        public virtual Room Room { get; set; }
+        //[ForeignKey("RoomId")]
+        //public virtual Room Room { get; set; }
     }
 }
