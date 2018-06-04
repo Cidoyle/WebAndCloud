@@ -23,34 +23,36 @@ namespace WebAndCloudCA.Controllers
         public ActionResult EditDetails(Guest guest)
         {
             guest.Email = Session["email"].ToString();
+
             dao.ShowGuestDetails(guest);
-            return View();
-        }   
+            return View(guest);
+        }
 
-        //[HttpPost]
-        //public ActionResult EditDetails(Guest guest)
-        //{
-        //    guest.Email = Session["email"].ToString();
-        //    int count = 0;
-        //    if (ModelState.IsValid)
-        //    {
-        //        count = dao.EditGuest(guest);
-        //        if (count > 0)
-        //        {
+        [HttpPost]
+        public ActionResult EditDetails(Guest guest, FormCollection form)
+        {
+            guest.Email = Session["email"].ToString();
 
-        //            ViewBag.Message = "Update Successful";
-        //        }
-        //        else
-        //        {
-        //            ViewBag.Message = "Error " + dao.message;
-        //        }
-        //        ModelState.Clear();
-        //        return View();
-        //    }
-        //    else
-        //    {
-        //        return View(guest);
-        //    }
-        //}
+            ModelState.Remove("Password");
+            int count = 0;
+            if (ModelState.IsValid)
+            {
+                count = dao.EditGuest(guest);
+                if (count > 0)
+                {
+                    return RedirectToAction("AccountDetails", "AccountDetails");
+                }
+                else
+                {
+                    ViewBag.Message = "Error " + dao.message;
+                }
+                ModelState.Clear();
+                return View();
+            }
+            else
+            {
+                return View(guest);
+            }
+        }
     }
 }

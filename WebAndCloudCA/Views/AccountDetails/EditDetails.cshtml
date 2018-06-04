@@ -7,7 +7,7 @@
 <h1 class="line1 headline">Edit Details</h1>
 
 <panel class="reg_form">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("EditDetails", "AccountDetails", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
 

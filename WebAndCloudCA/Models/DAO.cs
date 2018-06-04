@@ -178,7 +178,7 @@ namespace WebAndCloudCA.Models
 
         public int EditGuest(Guest guest)
         {
-            string password;
+            //string password;
             int count = 0;
             SqlCommand cmd = new SqlCommand("uspEditGuest", conn);
             cmd.CommandType = CommandType.StoredProcedure;
