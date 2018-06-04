@@ -13,18 +13,14 @@
 <h1 class="line1 headline">Register New Account</h1>
 
 @ViewBag.Message
-<section class="reg_display">
 
-    <panel class="reg_form">
+    <panel class="form">
 
         @using (Html.BeginForm("Registration", "Guest", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
-
-
-        <div class="reg_column">
-
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            
+            @Html.ValidationSummary(true, "", new { @class = "text-danger-summary" })
             <div>
                 <div class="div_flex">
                     @Html.LabelFor(g => g.FirstName)
@@ -72,16 +68,14 @@
                 </div>
                 @Html.EditorFor(g => g.PhoneNo, new { htmlAttributes = new { @class = "textbox" } })
             </div>
-
+            
             <div>
-                <div>
-                    <input type="submit" value="Create Account" class="submit" />
-                </div>
+                <input type="submit" value="Create Account" class="submit" />
             </div>
-            <p>
-                @Html.ActionLink("Sign In", "Login")
-            </p>
-        </div>
+            
+            <div>
+                @Html.ActionLink("Already Registered? Sign In", "Login")
+            </div>        
         }
     </panel>
-</section>
+

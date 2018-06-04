@@ -9,6 +9,17 @@
     color: white;
 }
 
+p {
+    font-size: 1.5em;
+    text-align: justify;
+    text-indent: 3%;
+}
+
+.firstletter {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
 
 /*Header / Navigation*/
 
@@ -180,15 +191,15 @@ footer a {
 
 /* Registration*/
 
-.reg_display {
+/*.reg_display {
     display: flex;      
-}
+}*/
 
 h1 span {
     width: 50%;
 }
 
-.reg_form {
+.form {
     width: 50%;
     display: block;
     margin: 70px auto 50px auto;
@@ -202,13 +213,13 @@ h1 span {
     border-right: 3px solid #BBAE7B;
 }
 
-.reg_column {    
+/*.reg_column {    
     width: 90%;
     display: block;    
     align-content: center;
     margin-left: auto;
     margin-right: auto;
-}
+}*/
 
 .div_flex {        
     width: 100%;
@@ -219,6 +230,11 @@ h1 span {
 .text-danger {    
     color: #FF0000;
     float: right;
+}
+
+.text-danger-summary {
+    color: #FF0000;
+    float: left;
 }
 
 .textbox {
@@ -234,7 +250,7 @@ h1 span {
     width: 170px;
     background-color: #747373;
     color: #ffffff;
-    margin: 30px auto 0 auto;    
+    margin: 30px auto 30px auto;    
     padding: 12px 20px;
     border: none;
     border-radius: 4px;

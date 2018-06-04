@@ -6,16 +6,13 @@
 
 <h1 class="line1 headline">Sign in</h1>
 
-<panel class="reg_form">
+<panel class="form">
 
     @using (Html.BeginForm("Login", "Guest", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-
-    <div class="reg_column">
-
-        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
-        @Html.ValidationSummary(true, "Login failed. Please check your login details.", new { @class = "text-danger" })
+                
+        @Html.ValidationSummary(true, "Login failed. Please check your login details.", new { @class = "text-danger-summary" })
         <div>
             <div class="div_flex">
                 @Html.LabelFor(l => l.Email)
@@ -31,16 +28,14 @@
             </div>
             @Html.PasswordFor(l => l.Password, new { @class = "textbox" })
         </div>
-
+        
         <div>
-            <div>
-                <input type="submit" value="Sign In" class="submit" />
-            </div>
+            <input type="submit" value="Sign In" class="submit" />
         </div>
-        <p>
+        
+        <div>
             @Html.ActionLink("Not Registered? Click Here", "Registration")
-        </p>
-    </div>
+        </div>    
     }
 </panel>
 
