@@ -8,6 +8,7 @@ namespace WebAndCloudCA.Models
 {
     public class Feedback
     {
+        [Key]
         public int FeedbackId { get; set; }
 
         [Display(Name ="Topic")]

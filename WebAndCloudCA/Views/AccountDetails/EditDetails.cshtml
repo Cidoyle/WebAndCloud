@@ -7,7 +7,7 @@
 <h1 class="line1 headline">Edit Details</h1>
 
 <panel class="reg_form">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("EditDetails", "AccountDetails", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
 
@@ -19,6 +19,7 @@
             @Html.DisplayFor(g => g.GuestId)
 
             <div>
+                
                 <div class="div_flex">
                     @Html.LabelFor(g => g.FirstName)
                     @Html.EditorFor(g => g.FirstName, new { htmlAttributes = new { @class = "textbox" } })
