@@ -28,7 +28,7 @@ namespace WebAndCloudCA.Models
         //[Required]
         public County CountyList { get; set; }
 
-        public IEnumerable<Room> Rooms { get; set; }
+        //public IEnumerable<Room> Rooms { get; set; }
 
 
         public Room() { }

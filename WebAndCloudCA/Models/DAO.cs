@@ -22,6 +22,47 @@ namespace WebAndCloudCA.Models
         }
         #endregion
 
+        public List<Room> SearchRooms(Room rooms)
+        {
+            List<Room> roomList = new List<Room>();
+
+            SqlDataReader reader;
+            //Creating an instance of SqlCommand 
+            SqlCommand cmd;
+            //Intialising SqlCommand
+            cmd = new SqlCommand("uspSearchRooms", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@county", rooms.CountyList);
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Room room = new Room();
+                    room.RoomId = int.Parse(reader["RoomId"].ToString());
+                    room.RoomAddress = reader["Address"].ToString();
+                    room.Price = decimal.Parse(reader["RoomPrice"].ToString());
+                    room.NoOfGuests = int.Parse(reader["NumberOfGuests"].ToString());
+                    room.CountyList = (County)Enum.Parse(typeof(County), reader["County"].ToString());
+                    room.RoomImage = reader["RoomImage"].ToString();
+                    roomList.Add(room);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return roomList;
+        }
+    
+
         #region Rooms
         public List<Room> ShowAllRooms()
         {

@@ -18,5 +18,13 @@ namespace WebAndCloudCA.Controllers
             List<Room> roomList = dao.ShowAllRooms();
             return View(roomList);
         }
+
+        [HttpPost]
+        public ActionResult Rooms(Room  room)
+        {
+            
+            return RedirectToAction("Login", "Guest");
+        }
+    
     }
 }

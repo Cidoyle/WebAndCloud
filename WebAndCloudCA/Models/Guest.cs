@@ -48,6 +48,7 @@ namespace WebAndCloudCA.Models
         public string ConfirmPassword { get; set; }
 
         [Display(Name = "Phone Number")]
+        [Required]
         public string PhoneNo { get; set; }
     }
 }
