@@ -22,6 +22,7 @@ namespace WebAndCloudCA.Models
         }
         #endregion
 
+        #region Rooms
         public List<Room> SearchRooms(Room rooms)
         {
             List<Room> roomList = new List<Room>();
@@ -63,7 +64,7 @@ namespace WebAndCloudCA.Models
         }
     
 
-        #region Rooms
+        
         public List<Room> ShowAllRooms()
         {
             List<Room> roomList = new List<Room>();

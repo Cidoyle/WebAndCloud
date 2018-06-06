@@ -19,12 +19,12 @@ namespace WebAndCloudCA.Controllers
             return View(roomList);
         }
 
-        [HttpPost]
-        public ActionResult Rooms(Room  room)
-        {
+        //[HttpPost]
+        //public ActionResult Rooms()
+        //{
             
-            return RedirectToAction("Login", "Guest");
-        }
+        //    //return RedirectToAction("Login", "Guest");
+        //}
     
     }
 }
