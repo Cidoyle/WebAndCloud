@@ -48,6 +48,7 @@ namespace WebAndCloudCA.Models
                     room.RoomImage = reader["RoomImage"].ToString();
                     roomList.Add(room);
                 }
+
             }
             catch (Exception ex)
             {
@@ -236,7 +237,7 @@ namespace WebAndCloudCA.Models
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@arrival", booking.ArrivalDate);
             cmd.Parameters.AddWithValue("@departure", booking.DepartureDate);
-            cmd.Parameters.AddWithValue("@noOfGuests", booking.NumberOfGuests);
+            cmd.Parameters.AddWithValue("@noOfGuests", booking.NumberOfGuests.ToString());
             //cmd.Parameters.AddWithValue("@guestId", booking.Guest.GuestId);
             //cmd.Parameters.AddWithValue("@roomId", booking.Room.RoomId);
 
@@ -254,6 +255,39 @@ namespace WebAndCloudCA.Models
                 conn.Close();
             }
             return count;
+        }
+
+        public void ShowBooking (Booking booking)
+        {
+            
+            SqlDataReader reader;
+            SqlCommand cmd = new SqlCommand("uspGetBooking", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@bookingId", booking.BookingId);
+            try
+            {
+                conn.Open();
+
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    booking.BookingId = int.Parse(reader["BookingId"].ToString());
+                    booking.ArrivalDate = DateTime.Parse(reader["ArrivalDate"].ToString());
+                    booking.DepartureDate = DateTime.Parse(reader["DepartureDate"].ToString());
+                    booking.NumberOfGuests = int.Parse(reader["NumberOfGuests"].ToString());
+                }
+
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+
         }
         #endregion
     }

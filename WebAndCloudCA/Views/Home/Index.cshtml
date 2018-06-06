@@ -15,7 +15,7 @@
         <div>
             <div class="div_flex">                    
                 <label class="label_float">Where do you want to go? </label>
-                @Html.ValidationMessageFor(model => model.Room.CountyList, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor( model => model.Room.CountyList, "", new { @class = "text-danger" })
             </div>
             @Html.EnumDropDownListFor(model => model.Room.CountyList, "Select County", new { @class = "textbox" })
                 

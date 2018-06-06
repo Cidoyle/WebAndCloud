@@ -3,40 +3,49 @@
 @{
     ViewBag.Title = "BookingDetails";
 }
+@if (Session["name"] != null)
+{
+    <nav class="account nav">
+        <ul class="container">
+            <li>@Html.ActionLink("Book A Room", "Booking", "Booking")</li>
+            <li>@Html.ActionLink("Account Details", "AccountDetails", "AccountDetails")</li>
+            <li>@Html.ActionLink("Booking History", "BookingDetails", "BookingDetails")</li>
+            <li>@Html.ActionLink("Feedback", "Index", "Feedback")</li>
+        </ul>
+    </nav>
+    <h2>Booking Details</h2>
 
-<h2>Booking Details</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
 
-<div>
-    <h4>Booking</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        
-        <dt>
-            @Html.DisplayNameFor(model => model.ArrivalDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ArrivalDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ArrivalDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ArrivalDate)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DepartureDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.DepartureDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DepartureDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DepartureDate)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NumberOfGuests)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.NumberOfGuests)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NumberOfGuests)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.NumberOfGuests)
+            </dd>
 
-    </dl>
-</div>
+        </dl>
+    </div>
+}
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.BookingId }) |*@
     @Html.ActionLink("Back to List", "Index")

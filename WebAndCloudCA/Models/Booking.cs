@@ -26,14 +26,14 @@ namespace WebAndCloudCA.Models
         [Required]
         public int NumberOfGuests { get; set; }
 
-        [Display(Name ="Guest Id")]
-        public int GuestId { get; set; }
+        //[Display(Name ="Guest Id")]
+        //public int GuestId { get; set; }
 
         //[ForeignKey("GuestId")]
         //public virtual Guest Guest { get; set; }
 
-        [Display(Name ="Room Id")]
-        public int RoomId { get; set; }
+        //[Display(Name ="Room Id")]
+        //public int RoomId { get; set; }
 
         //[ForeignKey("RoomId")]
         //public virtual Room Room { get; set; }

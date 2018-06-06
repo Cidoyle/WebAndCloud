@@ -56,7 +56,8 @@
     <div>
         <div class="div_flex">
             @Html.LabelFor(b => b.NumberOfGuests)
-            @Html.EditorFor(b => b.NumberOfGuests, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.TextBoxFor(b => b.NumberOfGuests, new { type = "number", min = "1", max = "4" })
+            @*@Html.EditorFor(b => b.NumberOfGuests, new { htmlAttributes = new { @class = "textbox" } })*@
             <div />
             @Html.ValidationMessageFor(b => b.NumberOfGuests, "", new { @class = "text-danger" })
         </div>

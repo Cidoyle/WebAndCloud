@@ -65,7 +65,7 @@
 }
 
     <p>
-        @Html.ActionLink("Edit Details", "EditDetails", "AccountDetails")
+        @Html.ActionLink("Edit Details", "EditDetails", new {id = Model.GuestId})
         @Html.ActionLink("Delete Account", "DeleteAccount")
     </p>
 

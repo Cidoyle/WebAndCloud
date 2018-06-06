@@ -28,6 +28,8 @@ namespace WebAndCloudCA.Models
         //[Required]
         public County CountyList { get; set; }
 
+        public IEnumerable<Room> Rooms { get; set; }
+
 
         public Room() { }
         public Room(int roomId, string address, decimal price, string image, int guests, County county)
