@@ -19,12 +19,12 @@ namespace WebAndCloudCA.Controllers
             return View(roomList);
         }
 
-        //[HttpPost]
-        //public ActionResult Rooms()
-        //{
-            
-        //    //return RedirectToAction("Login", "Guest");
-        //}
-    
+        [HttpPost]
+        public ActionResult Rooms(Room room)
+        {
+            TempData["roomSelect"] = "Please Login/Register to complete your booking";
+            return RedirectToAction("Login", "Guest");
+        }
+
     }
 }

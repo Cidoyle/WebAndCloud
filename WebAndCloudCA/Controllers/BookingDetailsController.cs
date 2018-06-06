@@ -13,7 +13,7 @@ namespace WebAndCloudCA.Controllers
         // GET: BookingDetails
         public ActionResult BookingDetails(Booking booked)
         {
-            booked.BookingId = int.Parse(Session["bookingId"].ToString());
+            //booked.BookingId = int.Parse(Session["bookingId"].ToString());
             dao.ShowBooking(booked);
             return View(booked);
         }
