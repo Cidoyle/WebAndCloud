@@ -23,44 +23,65 @@ namespace WebAndCloudCA.Models
         #endregion
 
         #region Rooms
-        public List<Room> SearchRooms(Room rooms)
+        public List<Room> SearchRooms(Room room)
         {
             List<Room> roomList = new List<Room>();
-
-            SqlDataReader reader;
-            //Creating an instance of SqlCommand 
-            SqlCommand cmd;
-            //Intialising SqlCommand
-            cmd = new SqlCommand("uspSearchRooms", conn);
+            SqlCommand cmd = new SqlCommand("uspSearchRooms");
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@county", rooms.CountyList);
-            try
-            {
-                conn.Open();
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    Room room = new Room();
-                    room.RoomId = int.Parse(reader["RoomId"].ToString());
-                    room.RoomAddress = reader["Address"].ToString();
-                    room.Price = decimal.Parse(reader["RoomPrice"].ToString());
-                    room.NoOfGuests = int.Parse(reader["NumberOfGuests"].ToString());
-                    room.CountyList = (County)Enum.Parse(typeof(County), reader["County"].ToString());
-                    room.RoomImage = reader["RoomImage"].ToString();
-                    roomList.Add(room);
-                }
+            cmd.Parameters.AddWithValue("@County", room.CountyList);
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
 
-            }
-            catch (Exception ex)
-            {
-                message = ex.Message;
-            }
-            finally
-            {
-                conn.Close();
-            }
+            conn.Open();
+            sd.Fill(dt);
+            conn.Close();
 
-            return roomList;
+            foreach (DataRow dr in dt.Rows)
+            {
+                roomList.Add(
+                    new Room
+                    {
+                        RoomId = Convert.ToInt32(dr["Id"]),
+                        RoomAddress = dr["Name"].ToString(),
+                        Price = decimal.Parse(dr["City"].ToString()),
+                        NoOfGuests = Convert.ToInt32(dr["NumberOfGuests"]),
+                        CountyList = (County)Enum.Parse(typeof(County), dr["County"].ToString()),
+                        RoomImage = dr["RoomImage"].ToString()
+                    });
+                //SqlDataReader reader;
+                ////Creating an instance of SqlCommand 
+                //SqlCommand cmd;
+                ////Intialising SqlCommand
+                //cmd = new SqlCommand("uspSearchRooms", conn);
+                //cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@county", rooms.CountyList);
+                //try
+                //{
+                //    conn.Open();
+                //    reader = cmd.ExecuteReader();
+                //    while (reader.Read())
+                //    {
+                //        Room room = new Room();
+                //        room.RoomId = int.Parse(reader["RoomId"].ToString());
+                //        room.RoomAddress = reader["Address"].ToString();
+                //        room.Price = decimal.Parse(reader["RoomPrice"].ToString());
+                //        room.NoOfGuests = int.Parse(reader["NumberOfGuests"].ToString());
+                //        room.CountyList = (County)Enum.Parse(typeof(County), reader["County"].ToString());
+                //        room.RoomImage = reader["RoomImage"].ToString();
+                //        roomList.Add(room);
+                //    }
+
+                //}
+                //catch (Exception ex)
+                //{
+                //    message = ex.Message;
+                //}
+                //finally
+                //{
+                //    conn.Close();
+                //}
+            }
+                return roomList;
         }
     
 
