@@ -1,4 +1,4 @@
-﻿@model WebAndCloudCA.Models.Booking
+﻿@model IEnumerable<WebAndCloudCA.Models.Booking>
 
 @{
     ViewBag.Title = "BookingDetails";
@@ -14,39 +14,43 @@
         </ul>
     </nav>
     <h2>Booking Details</h2>
+    @foreach (var room in Model)
+    {
+        <div>
+            <hr />
 
-    <div>
-        <hr />
-        <dl class="dl-horizontal">
+            <dl class="dl-horizontal">
 
-            <dt>
-                @Html.DisplayNameFor(model => model.ArrivalDate)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ArrivalDate)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.ArrivalDate)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.ArrivalDate)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.DepartureDate)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DepartureDate)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.DepartureDate)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.DepartureDate)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.NumberOfGuests)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.NumberOfGuests)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.NumberOfGuests)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.NumberOfGuests)
+                </dd>
 
-        </dl>
-    </div>
-}
-<p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.BookingId }) |*@
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            </dl>
+            
+        </div>
+     }
+ }
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.BookingId }) |*@
+        @Html.ActionLink("Back to List", "Index")
+    </p>

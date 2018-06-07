@@ -11,11 +11,11 @@ namespace WebAndCloudCA.Controllers
     {
         DAO dao = new DAO();
         // GET: BookingDetails
-        public ActionResult BookingDetails(Booking booked)
+        public ActionResult BookingDetails()
         {
-            //booked.BookingId = int.Parse(Session["bookingId"].ToString());
-            dao.ShowBooking(booked);
-            return View(booked);
+            //Change to retrieve bookings just for logged in customer
+            List<Booking> bookingList = dao.ShowBookings();
+            return View(bookingList);
         }
     }
 }

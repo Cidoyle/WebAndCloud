@@ -23,15 +23,55 @@ namespace WebAndCloudCA.Models
         #endregion
 
         #region Rooms
+        /* public List<Room> SearchRooms(Room room)
+         {
+             List<Room> roomList = new List<Room>();
+
+             SqlDataReader reader;
+             //Creating an instance of SqlCommand 
+             SqlCommand cmd;
+             //Intialising SqlCommand
+             cmd = new SqlCommand("uspSearchRooms", conn);
+             cmd.CommandType = CommandType.StoredProcedure;
+             cmd.Parameters.AddWithValue("@County", room.CountyList);
+             try
+             {
+                 conn.Open();
+                 reader = cmd.ExecuteReader();
+                 while (reader.Read())
+                 {
+                     room = new Room();
+                     room.RoomId = int.Parse(reader["RoomId"].ToString());
+                     room.RoomAddress = reader["Address"].ToString();
+                     room.Price = decimal.Parse(reader["RoomPrice"].ToString());
+                     room.NoOfGuests = int.Parse(reader["NumberOfGuests"].ToString());
+                     room.CountyList = (County)Enum.Parse(typeof(County), reader["County"].ToString());
+                     room.RoomImage = reader["RoomImage"].ToString();
+                     roomList.Add(room);
+                 }
+
+             }
+             catch (Exception ex)
+             {
+                 message = ex.Message;
+             }
+             finally
+             {
+                 conn.Close();
+             }
+
+             return roomList;
+         }*/
+
         public List<Room> SearchRooms(Room room)
         {
             List<Room> roomList = new List<Room>();
-            SqlCommand cmd = new SqlCommand("uspSearchRooms");
+            SqlCommand cmd = new SqlCommand("uspSearchRooms", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@County", room.CountyList);
-            SqlDataAdapter sd = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
-
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            
             conn.Open();
             sd.Fill(dt);
             conn.Close();
@@ -48,44 +88,12 @@ namespace WebAndCloudCA.Models
                         CountyList = (County)Enum.Parse(typeof(County), dr["County"].ToString()),
                         RoomImage = dr["RoomImage"].ToString()
                     });
-                //SqlDataReader reader;
-                ////Creating an instance of SqlCommand 
-                //SqlCommand cmd;
-                ////Intialising SqlCommand
-                //cmd = new SqlCommand("uspSearchRooms", conn);
-                //cmd.CommandType = CommandType.StoredProcedure;
-                //cmd.Parameters.AddWithValue("@county", rooms.CountyList);
-                //try
-                //{
-                //    conn.Open();
-                //    reader = cmd.ExecuteReader();
-                //    while (reader.Read())
-                //    {
-                //        Room room = new Room();
-                //        room.RoomId = int.Parse(reader["RoomId"].ToString());
-                //        room.RoomAddress = reader["Address"].ToString();
-                //        room.Price = decimal.Parse(reader["RoomPrice"].ToString());
-                //        room.NoOfGuests = int.Parse(reader["NumberOfGuests"].ToString());
-                //        room.CountyList = (County)Enum.Parse(typeof(County), reader["County"].ToString());
-                //        room.RoomImage = reader["RoomImage"].ToString();
-                //        roomList.Add(room);
-                //    }
-
-                //}
-                //catch (Exception ex)
-                //{
-                //    message = ex.Message;
-                //}
-                //finally
-                //{
-                //    conn.Close();
-                //}
             }
-                return roomList;
+            return roomList;
         }
-    
 
-        
+
+
         public List<Room> ShowAllRooms()
         {
             List<Room> roomList = new List<Room>();
@@ -320,13 +328,13 @@ namespace WebAndCloudCA.Models
             return count;
         }
 
-        public void ShowBooking (Booking booking)
+        public List<Booking> ShowBookings ()
         {
-            
+            List<Booking> bookingList = new List<Booking>();
             SqlDataReader reader;
             SqlCommand cmd = new SqlCommand("uspGetBooking", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@bookingId", booking.BookingId);
+            //cmd.Parameters.AddWithValue("@bookingId", booking.BookingId);
             try
             {
                 conn.Open();
@@ -334,10 +342,12 @@ namespace WebAndCloudCA.Models
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    Booking booking = new Booking();
                     booking.BookingId = int.Parse(reader["BookingId"].ToString());
                     booking.ArrivalDate = DateTime.Parse(reader["ArrivalDate"].ToString());
                     booking.DepartureDate = DateTime.Parse(reader["DepartureDate"].ToString());
                     booking.NumberOfGuests = int.Parse(reader["NumberOfGuests"].ToString());
+                    bookingList.Add(booking);
                 }
 
             }
@@ -350,8 +360,10 @@ namespace WebAndCloudCA.Models
                 conn.Close();
             }
 
-
+            return bookingList;
         }
+
+        
         #endregion
     }
 }

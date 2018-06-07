@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebAndCloudCA.Models.Room>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="line1 headline">Rooms</h1>
+
+<section>
+
+    @foreach (var room in Model)
+    {
+        using (Html.BeginForm("Rooms", "Rooms", FormMethod.Post))
+        {
+            <div class="rooms_container">
+                <div class="rooms_container_rightimage">
+                    <div class="rooms_desc_column rightmargin">
+                        <div class="rooms_desc_header">
+                            <h2>@room.RoomAddress, Co. @room.CountyList</h2>
+                        </div>
+                        <div class="rooms_desc_section1">
+                            <div>&#x2714; Free Wifi</div>
+                            <div>&#x2714; Breakfast</div>
+                        </div>
+                        <div class="rooms_desc_section2">
+                            <div class="iconlist"><img src="~/Content/Icons/room-person.png" alt="icon-sleep"><div>Sleeps up to: @room.NoOfGuests</div></div>
+                            <div class="iconlist"><img src="~/Content/Icons/room-single_bed.png" alt="icon-single bed"><div>Single Bed</div></div>
+                            <div class="iconlist"><img src="~/Content/Icons/room-shower.png" alt="icon-shower"><div>Shower</div></div>
+                        </div>
+                        <div class="rooms_desc_section3">
+                            <h3>Facilities</h3>
+                        </div>
+                        <div class="rooms_desc_section4">
+                            <div class="iconlist"><img src="~/Content/Icons/room-alarm_clock.png" alt="icon-alarm clock"><div>Alarm clock</div></div>
+                            <div class="iconlist"><img src="~/Content/Icons/room-color_tv.png" alt="icon-color tv"><div>Colour television</div></div>
+                            <div class="iconlist"><img src="~/Content/Icons/room-fire_alarm.png" alt="icon-fire alarm"><div>Fire Alarm</div></div>
+                            <div class="iconlist"><img src="~/Content/Icons/room-hair_dryer.png" alt="icon-hair dryer"><div>Hair dryer</div></div>
+                            <div class="iconlist"><img src="~/Content/Icons/room-iron.png" alt="icon-iron"><div>Iron</div></div>
+                            <div class="iconlist"><img src="~/Content/Icons/room-non_smoking.png" alt="icon-non-smoking"><div>Non-smoking</div></div>
+                        </div>
+                    </div>
+                    <div class="rooms_gallery_column">
+                        <img class="rooms_gallery_img" src="~/Content/Images/Rooms/@room.RoomImage" alt="Single Room">
+                        <div class="rooms_gallery_thumb">
+                            <img src="~/Content/Images/Rooms/0003-1.jpg" alt="Single Room">
+                            <img src="~/Content/Images/Rooms/0003-2.jpg" alt="Bathroom">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rooms_booking">
+                    <button>
+                        <h2>Book now:</h2>
+                        <h1>&euro;@room.Price&nbsp;<span>/per night</span></h1>
+                    </button>
+                </div>
+            </div>
+        }
+    }
+
+</section>
+
+
+
