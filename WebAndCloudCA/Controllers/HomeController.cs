@@ -12,7 +12,6 @@ namespace WebAndCloudCA.Controllers
     public class HomeController : Controller
     {
         DAO dao = new DAO();
-        static List<SearchViewModel> selectedItems = new List<SearchViewModel>();
         // GET: Home
         public ActionResult Index()
         {
@@ -20,13 +19,18 @@ namespace WebAndCloudCA.Controllers
             return View();
         }
 
+        //Search not working yet
         [HttpPost]
         public ActionResult Search (Room room)
         {
-            List<Room> roomList = dao.SearchRooms(room);
-            return View(roomList);
+            List<Room> roomList = dao.ShowAllRooms();
 
-            // return RedirectToAction("Rooms", "Rooms");
+                    var list = from r in roomList
+                               where r.CountyList == room.CountyList
+                               select r;
+                    return View(list);
+                    
+              // return RedirectToAction("Rooms", "Rooms");
         }
 
     }
