@@ -19,6 +19,7 @@ namespace WebAndCloudCA.Controllers
             return View(roomList);
         }
 
+
         [HttpPost]
         public ActionResult Rooms(Room room)
         {

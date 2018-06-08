@@ -25,12 +25,11 @@ namespace WebAndCloudCA.Controllers
         {
             List<Room> roomList = dao.ShowAllRooms();
 
-                    var list = from r in roomList
-                               where r.CountyList == room.CountyList
-                               select r;
-                    return View(list);
-                    
-              // return RedirectToAction("Rooms", "Rooms");
+            var list = from r in roomList
+                       where r.CountyList == room.CountyList //&&
+                                //r.NoOfGuests == room.NoOfGuests
+                                select r;
+            return View(list);                 
         }
 
     }
