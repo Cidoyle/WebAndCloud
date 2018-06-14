@@ -12,12 +12,12 @@ namespace WebAndCloudCA.Models
         [Key]
         public int BookingId { get; set; }
 
-        [Display(Name ="Arrival Date")]
+        [Display(Name = "Arrival Date")]
         [DataType(DataType.Date)]
         [Required]
         public DateTime ArrivalDate { get; set; }
 
-        [Display(Name ="Departure Date")]
+        [Display(Name = "Departure Date")]
         [DataType(DataType.Date)]
         [Required]
         public DateTime DepartureDate { get; set; }
@@ -25,6 +25,26 @@ namespace WebAndCloudCA.Models
         [Display(Name = "Number Of Guests")]
         [Required]
         public int NumberOfGuests { get; set; }
+
+        public int NoOfDays
+        {
+            get
+            {
+                return (int)(DepartureDate.Subtract(ArrivalDate)).TotalDays;
+            }
+        }
+
+        [Display(Name = "Address")]
+        public string RoomAddress { get; set; }
+
+        [Display(Name = "Price")]
+        public decimal RoomPrice { get; set; }
+
+        public int RoomId { get; set; }
+
+        [ForeignKey("RoomId")]
+        public virtual Room Room { get; set; }
+
 
         //[Display(Name ="Guest Id")]
         //public int GuestId { get; set; }
@@ -37,5 +57,6 @@ namespace WebAndCloudCA.Models
 
         //[ForeignKey("RoomId")]
         //public virtual Room Room { get; set; }
+
     }
 }

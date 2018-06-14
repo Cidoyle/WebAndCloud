@@ -37,6 +37,13 @@
             </div>
             @Html.ValidationMessageFor(b => b.Room.RoomId, "", new { @class = "text-danger" })
         </div>*@
+    <p>
+        @Html.LabelFor(b => b.RoomAddress)  
+    </p>
+    <p>
+        @Html.LabelFor(b => b.RoomPrice)
+    </p>
+    
     <div>
         <div class="div_flex">
             @Html.LabelFor(b => b.ArrivalDate)

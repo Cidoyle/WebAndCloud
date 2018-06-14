@@ -417,23 +417,43 @@ h1 span {
     border-radius: 30px;
 }
 
-.rooms_booking h1 {
+.rooms_booking span {
+    line-height: 1.3em;
+    padding: 0;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.book_button {
+    background-color: #747373;
+    color: #ffffff;
+    margin: 0;
+    padding: 0.1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+/*.rooms_booking h1 {
     display: flex;
     flex: 1;
     line-height: 0;
     padding: 0;    
-}
+}*/
 
-.rooms_booking h1 span {
+/*.rooms_booking h1 span {
     font-size: .6em;
-}
+}*/
 
-.rooms_booking h2 {
+/*.rooms_booking h2 {
     display: flex;
     flex: 0.3;
     line-height: 0;
     padding: 0;
-}
+}*/
 
 /* FAQ */
 
