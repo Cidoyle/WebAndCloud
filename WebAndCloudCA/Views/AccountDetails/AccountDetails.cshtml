@@ -51,10 +51,13 @@
             }
         }
 
-        <div class="ref">
-            <span>@Html.ActionLink("Edit Details", "EditDetails", new { id = Model.GuestId })</span>
+            <div class="ref">
+                <span>@Html.ActionLink("Edit Details", "EditDetails", new { id = Model.GuestId })</span>
+                @using (Html.BeginForm("DeleteAccount", "AccountDetails", FormMethod.Post))
+                {
             <span>@Html.ActionLink("Delete Account", "DeleteAccount")</span>
-        </div>
+                }
+            </div>
 
     </panel>
             }

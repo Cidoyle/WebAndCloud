@@ -56,6 +56,7 @@ namespace WebAndCloudCA.Controllers
             }
         }
 
+        [HttpPost]
         public ActionResult DeleteAccount(Guest guest)
         {
             guest.Email = Session["email"].ToString();

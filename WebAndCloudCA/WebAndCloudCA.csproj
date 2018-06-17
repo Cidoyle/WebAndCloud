@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\FAQ.xml" />
+    <Content Include="App_Data\feedback.xml" />
     <Content Include="App_Data\GetCosyDB.mdf" />
     <Content Include="App_Data\GetCosyDB_log.ldf">
       <DependentUpon>GetCosyDB.mdf</DependentUpon>
