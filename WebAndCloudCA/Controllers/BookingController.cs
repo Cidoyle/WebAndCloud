@@ -9,38 +9,49 @@ namespace WebAndCloudCA.Controllers
 {
     public class BookingController : Controller
     {
-        //DAO dao = new DAO();
+        DAO dao = new DAO();
         //static List<Room> selectedRoom = new List<Room>();
         //static List<Booking> currentBooking = new List<Booking>();
 
-        public ActionResult Booking()
-        {
-            Booking booking = new Booking();
-            Room room = new Room();
-
-            booking.RoomAddress = room.RoomAddress;
-            booking.RoomPrice = room.Price;                         
-
-            return View(booking);
-            //Room room = new Room();
-            //currentBooking.RoomAddress = room.RoomAddress;
-            //currentBooking.RoomPrice = room.Price;
-
-            //return View(currentBooking);
-
-
-        }
+        static Booking booking = new Booking();
 
         [HttpPost]
         public ActionResult GetRoom(FormCollection form)
         {
-            Room room = new Room(); ;           
-            
-            room.RoomAddress = form["roomAddress"];
-            room.Price = decimal.Parse(form["roomPrice"]);                    
+            //room.RoomId = int.Parse(form["roomId"]);
+            //int id = int.Parse(form["roomId"]);
+
+            Room room = dao.ShowRoomById();
+            //Session["roomAddress"] = form["roomAddress"];
+            //Session["RoomPrice"] = decimal.Parse(form["roomPrice"]);
+
+            //return RedirectToAction("Booking");
+
+            //Room room = new Room();
+
+            room.RoomId = int.Parse(form["roomId"]);
+            //room.RoomAddress = form["roomAddress"];
+            //room.Price = decimal.Parse(form["roomPrice"]);
+
 
             return RedirectToAction("Booking");
         }
+
+        public ActionResult Booking()
+        {
+            Room room = new Room();
+
+            //booking.RoomAddress = "Testing Address";
+            //booking.RoomPrice = 66.0m;
+
+            booking.RoomAddress = "Testing Address";
+            booking.RoomPrice = 66.0m;
+
+            booking.RoomAddress = room.RoomAddress;
+            booking.RoomPrice = room.Price;
+
+            return View(booking);            
+        }        
 
 
         //public ActionResult Booking()
@@ -106,8 +117,6 @@ namespace WebAndCloudCA.Controllers
 
         //    return View(currentBooking);
         //}
-
-
 
 
         //[HttpPost]

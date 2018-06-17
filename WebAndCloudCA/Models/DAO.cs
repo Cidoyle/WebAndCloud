@@ -62,8 +62,25 @@ namespace WebAndCloudCA.Models
 
             return roomList;
         }
+
+        public /*DataSet*/Room ShowRoomById()
+        {
+            Room room = new Room();
+
+            SqlCommand cmd = new SqlCommand("uspGetRoomById", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@roomId", room.RoomId);
+            //SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //DataSet ds = new DataSet();
+            //da.Fill(ds);
+            //return ds;
+            return room;
+        }
+
+
         #endregion
-        
+
+
         #region Guest
         //Add Guest to DB via Registration
         public int AddGuest(Guest guest)
@@ -175,7 +192,6 @@ namespace WebAndCloudCA.Models
             DataSet ds = new DataSet();
             da.Fill(ds);           
             return ds;
-
         }
 
         public int EditGuest(Guest guest)

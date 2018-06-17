@@ -260,6 +260,106 @@ h1 span {
     font-weight: inherit;
 }
 
+/*Attractions*/
+
+.section_attractions a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.section_attractions h1 {
+    margin-bottom: 30px;
+    padding: 8px 0;
+    border: none;
+}
+
+.imageright_attractions {
+    display: flex;
+    margin: 0 0 20px 0;
+    padding: 10px;
+    font-size: .8em;
+    border: 1px dotted #BBAE7B;
+    border-radius: 10px;
+}
+
+.imageright_attractions img {
+    width: 270px;
+    height: auto;
+    float: right;
+    margin-left: 30px;
+}
+
+.imageright_attractions h1 {
+    margin: 15px 0 0 0;
+    padding: 0;
+    text-align: justify;
+    line-height: .7em;
+}
+
+.imageright_attractions h2 {
+    text-align: justify;
+    line-height: 1.3em;
+}
+
+.imageleft_attractions {
+    display: flex;
+    margin: 0 0 20px 0;
+    padding: 10px;
+    font-size: .8em;
+    border: 1px dotted #BBAE7B;
+    border-radius: 10px;
+}
+
+.imageleft_attractions img {
+    width: 270px;
+    height: auto;
+    float: left;
+    margin-right: 30px;
+}
+
+.imageleft_attractions h1 {
+    margin: 15px 0 0 0;
+    padding: 0;
+    text-align: justify;
+    line-height: .7em;
+}
+
+.imageleft_attractions h2 {
+    text-align: justify;
+    line-height: 1.3em;
+}
+
+.facilities_flex {
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.facilities_flex img {
+    margin: 0;
+    padding: 0;
+    height: 200px;
+    width: auto;
+}
+
+.facilities_flex_border {
+    line-height: 0;
+    border: 4px solid #BBAE7B;
+    padding: 0;
+    margin: 13px 0;
+}
+
+.centredesc {
+    font-weight: bold;
+    padding: 20px 0 20px 0;
+    margin: 0;
+    background-color: #747373;
+    color: #ffffff;
+}
+
 /* Rooms */
 
 .rooms_container {
@@ -474,4 +574,65 @@ h1 span {
 }
 
 
+/*Account details*/
 
+.account_nav {
+    display: flex;
+    flex: 4;
+    margin-bottom: 40px;
+    margin-top: 50px;
+    background-color: #353535;
+    color: #FFFFFF;    
+}
+
+.account_nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.account_nav li {
+    list-style-type: none;
+    padding: 10px 5px;
+    margin: 0px 0px 0px 0px;
+    height: 100%;
+    text-decoration: none;
+    float: left;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.account_nav li:hover {
+    background-color: #747373;    
+    color: #BBAE7B;
+}
+
+.account_nav a {
+    margin: 0px 0px 0px 0px;
+    height: 100%;
+    text-decoration: none;
+    float: left;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.account_nav .current {
+    color: #BBAE7B;
+}
+
+.account_tbl th, td {
+    text-align: left;
+    padding-right: 50px;
+}
+
+.centre{
+    align-content: center;
+}
+
+.ref{
+    margin-top: 2em;
+}
+
+.ref span{
+    padding: 1.2em;
+    font-size: 1.2em;
+}

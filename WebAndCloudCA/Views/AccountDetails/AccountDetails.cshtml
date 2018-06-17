@@ -6,8 +6,7 @@
 
 @if (Session["name"] != null)
 {
-
-    <nav class="account nav">
+    <nav class="account_nav">
         <ul class="container">
             <li>@Html.ActionLink("Book A Room", "Booking", "Booking")</li>
             <li>@Html.ActionLink("Account Details", "AccountDetails", "AccountDetails")</li>
@@ -15,58 +14,46 @@
             <li>@Html.ActionLink("Feedback", "Index", "Feedback")</li>
         </ul>
     </nav>
-    <h2>Account Details</h2>
 
-    <div>
-        <h4>Welcome @Session["name"]</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            @TempData["updated"]
-            <dt>
-                @Html.DisplayNameFor(g => g.GuestId)
-            </dt>
+    <panel class="form">
+        <div class="centre">
+            <h2>Account Details</h2>
+        </div>
 
-            <dd>
-                @Html.DisplayFor(g => g.GuestId)
-            </dd>
+        <div>
+            <h4>Welcome @Session["name"]!</h4>
+            <hr />
+            <table class="account_tbl">
+                @TempData["updated"]
+                <tr>
+                    <th>@Html.DisplayNameFor(g => g.GuestId)</th>
+                    <td>@Html.DisplayFor(g => g.GuestId)</td>                   
+                </tr>                
+                <tr>
+                    <th>@Html.DisplayNameFor(g => g.Name)</th>
+                    <td>@Html.DisplayFor(g => g.Name)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(g => g.Email)</th>
+                    <td>@Html.DisplayFor(g => g.Email)</td>                    
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(g => g.PhoneNo)</th>
+                    <td>@Html.DisplayFor(g => g.PhoneNo)</td>                    
+                </tr>
+            </table>
+        </div>        
+        @{
+            if (TempData["message"] != null)
+            {
+            <script>alert('@TempData["message"]')</script>
+            }
+        }
 
-            <dt>
-                @Html.DisplayNameFor(g => g.Name)
-            </dt>
+        <div class="ref">
+            <span>@Html.ActionLink("Edit Details", "EditDetails", new { id = Model.GuestId })</span>
+            <span>@Html.ActionLink("Delete Account", "DeleteAccount")</span>
+        </div>
 
-            <dd>
-                @Html.DisplayFor(g => g.Name)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(g => g.Email)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(g => g.Email)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(g => g.PhoneNo)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(g => g.PhoneNo)
-            </dd>
-
-        </dl>
-    </div>
-}
-@{ 
-    if (TempData["message"] != null)
-    {
-        <script>alert('@TempData["message"]')</script>
-    }
-}
-
-    <p>
-        @Html.ActionLink("Edit Details", "EditDetails", new {id = Model.GuestId})
-        @Html.ActionLink("Delete Account", "DeleteAccount")
-    </p>
-
-
+    </panel>
+            }
