@@ -38,10 +38,12 @@
             @Html.ValidationMessageFor(b => b.Room.RoomId, "", new { @class = "text-danger" })
         </div>*@
     <p>
-        @Html.LabelFor(b => b.RoomAddress)  
+        @Html.LabelFor(b => b.RoomAddress)
+        @*@Session["roomAddress"]*@
     </p>
     <p>
         @Html.LabelFor(b => b.RoomPrice)
+        @*@Session["RoomPrice"]*@
     </p>
     
     <div>

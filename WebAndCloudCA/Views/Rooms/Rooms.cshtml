@@ -53,10 +53,10 @@
 
                     <div class="rooms_booking">
                         <input type="text" name="roomId" value="@room.RoomId" hidden />
-                        <input type="text" name="roomAddress" value="@room.RoomAddress" hidden />
-                        <input type="text" name="roomPrice" value="@room.Price" hidden />
+                        @*<input type="text" name="roomAddress" value="@room.RoomAddress" hidden />*@
+                        @*<input type="text" name="roomPrice" value="@room.Price" hidden />*@
                         <span>Book now:&nbsp;&nbsp;&nbsp;</span>
-                        <input class="book_button" type="submit" value="€@room.Price /per night" />
+                        <input class="book_button" name="roomPrice" type="submit" value="€@room.Price /per night" />
                     </div>
                 </div>
             }
