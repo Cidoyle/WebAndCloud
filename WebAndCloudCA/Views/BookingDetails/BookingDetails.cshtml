@@ -5,15 +5,16 @@
 }
 @if (Session["name"] != null)
 {
-    <nav class="account nav">
-        <ul class="container">
-            <li>@Html.ActionLink("Book A Room", "Booking", "Booking")</li>
-            <li>@Html.ActionLink("Account Details", "AccountDetails", "AccountDetails")</li>
-            <li>@Html.ActionLink("Booking History", "BookingDetails", "BookingDetails")</li>
-            <li>@Html.ActionLink("Feedback", "Index", "Feedback")</li>
-        </ul>
-    </nav>
+<nav class="account_nav">
+    <ul class="container">
+        <li>@Html.ActionLink("Book A Room", "Booking", "Booking")</li>
+        <li>@Html.ActionLink("Account Details", "AccountDetails", "AccountDetails")</li>
+        <li>@Html.ActionLink("Booking History", "BookingDetails", "BookingDetails")</li>
+        <li>@Html.ActionLink("Feedback", "Index", "Feedback")</li>
+    </ul>
+</nav>
     <h2>Booking Details</h2>
+
     @foreach (var room in Model)
     {
         <div>
