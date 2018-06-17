@@ -10,14 +10,15 @@ namespace WebAndCloudCA.Controllers
     public class BookingController : Controller
     {
         DAO dao = new DAO();
-        //static List<Room> selectedRoom = new List<Room>();
-        //static List<Booking> currentBooking = new List<Booking>();
+        static List<Room> selectedRoom = new List<Room>();
+        static List<Booking> currentBooking = new List<Booking>();
 
         static Booking booking = new Booking();
 
         [HttpPost]
         public ActionResult GetRoom(FormCollection form)
         {
+           
             //room.RoomId = int.Parse(form["roomId"]);
             //int id = int.Parse(form["roomId"]);
 
