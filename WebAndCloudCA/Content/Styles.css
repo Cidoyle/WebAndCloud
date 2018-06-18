@@ -16,7 +16,7 @@ p {
 }
 
 .firstletter {
-    font-size: 1.8em;
+    font-size: 1.6em;
     font-weight: bold;
 }
 
@@ -191,10 +191,6 @@ footer a {
 
 /* Registration*/
 
-/*.reg_display {
-    display: flex;      
-}*/
-
 h1 span {
     width: 50%;
 }
@@ -212,14 +208,6 @@ h1 span {
 .col_rborder {
     border-right: 3px solid #BBAE7B;
 }
-
-/*.reg_column {    
-    width: 90%;
-    display: block;    
-    align-content: center;
-    margin-left: auto;
-    margin-right: auto;
-}*/
 
 .div_flex {        
     width: 100%;
@@ -271,6 +259,7 @@ h1 span {
     margin-bottom: 30px;
     padding: 8px 0;
     border: none;
+    font-size: 2em;
 }
 
 .imageright_attractions {
@@ -512,7 +501,6 @@ h1 span {
     align-items: baseline;
     border: 1px solid #353535;
     background-color: #BBAE7B;
-    /*background-color: #747373;*/
     color: #ffffff;
     border-radius: 30px;
 }
@@ -535,25 +523,8 @@ h1 span {
     font-family: inherit;
     font-size: 1.8em;
     font-weight: bold;
+    border-radius: 15em;
 }
-
-/*.rooms_booking h1 {
-    display: flex;
-    flex: 1;
-    line-height: 0;
-    padding: 0;    
-}*/
-
-/*.rooms_booking h1 span {
-    font-size: .6em;
-}*/
-
-/*.rooms_booking h2 {
-    display: flex;
-    flex: 0.3;
-    line-height: 0;
-    padding: 0;
-}*/
 
 /* FAQ */
 

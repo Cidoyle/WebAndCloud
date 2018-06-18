@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="GetCosy, Irish Holiday Room Rental app. Book accommodation conveniently in Ireland" />
+    <meta name="keywords" content="Ireland, B&B, hostel, accomodation, Dublin, Galway, Clare, Donegal, rooms, attractions, holiday, weekend">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link rel="stylesheet" type="text/css" href=@Url.Content("~/Content/Styles.css") />
     <script type="text/javascript" src=@Url.Content("~/Scripts/jquery-1.10.2.js")></script>
@@ -58,12 +59,15 @@
         </ul>
     </nav>
     <div class="mainimage" id="slideShowImg">
+        @*https://www.ireland.com/en-au/what-is-available/natural-landscapes-and-sights/natural-landscapes/articles/connemara-film-trail/*@
         <div><img src="~/Content/Slides/a_ries_connemara.jpg" alt="Galway Landscape"></div>
+        @*source: http://driversguide.ie/cliffs-of-moher/*@
         <div><img src="~/Content/Slides/Cliffs-of-Moher-main.jpg" alt="Cliffs of Moher"></div>
-        <div><img src="~/Content/Slides/galway.jpg" alt="Galway"></div>
+        @*source: https://www.lonelyplanet.com/ireland/county-galway/activities/connemara-tour-from-galway-ross-errilly-friary-kylemore-abbey/a/pa-act/v-5750CONNEMARA/359673*@
         <div><img src="~/Content/Slides/hotel_main.jpg" alt="Castle"></div>
-        <div><img src="~/Content/Slides/pine-island-connemara-galway.jpg" alt="Pine Island"></div>
-        <div><img src="~/Content/Slides/visitGalway_main.jpg" alt="Visit Galway"></div>
+        @*source : https://www.bryanhanna.com/shop/derryclare/*@
+        @*source: https://www.connemara.net/*@
+        <div><img src="~/Content/Slides/pine-island-connemara-galway.jpg" alt="Pine Island"></div>        
     </div>    
 
     <main class="container main">
