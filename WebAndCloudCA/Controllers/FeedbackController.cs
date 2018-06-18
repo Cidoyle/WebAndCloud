@@ -67,31 +67,5 @@ namespace WebAndCloudCA.Controllers
             ViewBag.List = list;
             return View();
         }
-
-        //public ActionResult ShowFeedback()
-        //{
-        //    List<ContactModel> list = new List<ContactModel>();
-        //    if (System.IO.File.Exists(Server.MapPath("~/App_Data/feedback.xml")))
-        //    {
-        //        DataSet dataSet = new DataSet();
-        //        dataSet.ReadXml(Server.MapPath("~/App_Data/feedback.xml"));
-        //        DataTable table = dataSet.Tables[0];
-        //        foreach (DataRow row in table.Rows)
-        //        {
-        //            ContactModel model = new ContactModel();
-        //            model.Name = row[0].ToString();
-        //            model.Email = row[1].ToString();
-        //            model.Comments = row[2].ToString();
-        //            list.Add(model);
-        //        }
-        //        ViewData["message"] = "";
-        //    }
-        //    else
-        //    {
-        //        ViewData["message"] = "User feedback is not recorded";
-        //    }
-
-        //    return View(list);
-        //}
     }
 }

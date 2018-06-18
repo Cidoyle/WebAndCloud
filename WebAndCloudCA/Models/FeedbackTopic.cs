@@ -7,6 +7,7 @@ namespace WebAndCloudCA.Models
 {
     public enum FeedbackTopic
     {
+        Testimonial,
         AmendBooking,
         Complaint,
         OtherEnquiry

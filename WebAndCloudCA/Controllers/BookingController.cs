@@ -10,8 +10,8 @@ namespace WebAndCloudCA.Controllers
     public class BookingController : Controller
     {
         DAO dao = new DAO();
-        static List<Room> selectedRoom = new List<Room>();
-        static List<Booking> currentBooking = new List<Booking>();
+        //static List<Room> selectedRoom = new List<Room>();
+        //static List<Booking> currentBooking = new List<Booking>();
 
         static Booking booking = new Booking();
 
@@ -23,8 +23,8 @@ namespace WebAndCloudCA.Controllers
             //int id = int.Parse(form["roomId"]);
 
             Room room = dao.ShowRoomById();
-            //Session["roomAddress"] = form["roomAddress"];
-            //Session["RoomPrice"] = decimal.Parse(form["roomPrice"]);
+            Session["roomAddress"] = form["roomAddress"];
+            Session["RoomPrice"] = decimal.Parse(form["roomPrice"]);
 
             //return RedirectToAction("Booking");
 
