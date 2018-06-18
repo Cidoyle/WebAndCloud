@@ -145,6 +145,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\WebAndCloudCA20180618021459 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\WebAndCloudCA20180618104728 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
