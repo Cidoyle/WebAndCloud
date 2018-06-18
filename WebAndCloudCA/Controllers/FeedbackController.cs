@@ -50,7 +50,8 @@ namespace WebAndCloudCA.Controllers
                 dt.AcceptChanges();
                 ds.WriteXml(Server.MapPath("~/App_Data/feedback.xml"));
                 ViewData["message"] = "Feedback received. Thank you.";
-                return RedirectToAction("AccountDetails", "AccountDetails");
+                
+                return View(model);
             }
 
             return View(model);
