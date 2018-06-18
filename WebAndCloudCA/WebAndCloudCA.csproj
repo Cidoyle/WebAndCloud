@@ -113,6 +113,7 @@
     <Content Include="Content\Icons\room-single_bed.png" />
     <Content Include="Content\Icons\room-twin_beds.png" />
     <Content Include="Content\Icons\twitter-icon.png" />
+    <Content Include="Content\Images\blank_profile.png" />
     <Content Include="Content\Images\Rooms\0001-1.jpg" />
     <Content Include="Content\Images\Rooms\0001-2.jpg" />
     <Content Include="Content\Images\Rooms\0002-1.jpg" />
@@ -194,6 +195,7 @@
     <Content Include="Views\FAQ\Index.cshtml" />
     <Content Include="Views\Feedback\Index.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Feedback\DisplayFeedback.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

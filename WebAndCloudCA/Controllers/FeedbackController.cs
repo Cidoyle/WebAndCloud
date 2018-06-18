@@ -5,15 +5,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebAndCloudCA.Models;
+using System.Xml;
 
 namespace WebAndCloudCA.Controllers
 {
     public class FeedbackController : Controller
     {
-        // GET: Feedback
+
+        DAO dao = new DAO();
+        
         static DataSet ds;
         static DataTable dt;
-
+        
+        // GET: Feedback
         public ActionResult Index()
         {
             if (System.IO.File.Exists(Server.MapPath("~/App_Data/feedback.xml")))
@@ -50,6 +54,18 @@ namespace WebAndCloudCA.Controllers
             }
 
             return View(model);
+        }
+
+        public ActionResult DisplayFeedback()
+        {
+            XmlDocument xdoc = new XmlDocument();
+            xdoc.Load(HttpContext.Server.MapPath("~/App_Data/feedback.xml"));
+            XmlNode root = xdoc.DocumentElement;
+            XmlNode channel = root.FirstChild;
+
+            XmlNodeList list = xdoc.SelectNodes("/user_feedback/user_comments");
+            ViewBag.List = list;
+            return View();
         }
 
         //public ActionResult ShowFeedback()

@@ -4,42 +4,44 @@
     ViewBag.Title = "Index";
 }
 
-<nav class="account_nav">
-    <ul class="container">
-        <li>@Html.ActionLink("Book A Room", "Booking", "Booking")</li>
-        <li>@Html.ActionLink("Account Details", "AccountDetails", "AccountDetails")</li>
-        <li>@Html.ActionLink("Booking History", "BookingDetails", "BookingDetails")</li>
-        <li>@Html.ActionLink("Feedback", "Index", "Feedback")</li>
-    </ul>
-</nav>
-<panel class="form">
-    @using (Html.BeginForm("Index", "Feedback", FormMethod.Post))
-    {
-        @Html.AntiForgeryToken()
+@if (Session["name"] != null)
+{
+    <nav class="account_nav">
+        <ul class="container">
+            <li>@Html.ActionLink("Book A Room", "Booking", "Booking")</li>
+            <li>@Html.ActionLink("Account Details", "AccountDetails", "AccountDetails")</li>
+            <li>@Html.ActionLink("Booking History", "BookingDetails", "BookingDetails")</li>
+            <li>@Html.ActionLink("Feedback", "Index", "Feedback")</li>
+        </ul>
+    </nav>
+    <panel class="form">
+        @using (Html.BeginForm("Index", "Feedback", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
 
-        <h2>Feedback</h2>
+            <h2>Feedback</h2>
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger-summary" })
-        <div>
-            <div class="div_flex">
-                @Html.LabelFor(f => f.FeedbackTopic, new { @class = "label_float" })
-                @Html.ValidationMessageFor(f => f.FeedbackTopic, "", new { @class = "text-danger" })
-            </div>
-            @Html.EnumDropDownListFor(f => f.FeedbackTopic, "Select Topic", new { @class = "textbox" })
-
-            <div class="div_flex">
-                @Html.LabelFor(f => f.Description, htmlAttributes: new { @class = "label_float" })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            </div>
-            @Html.TextAreaFor(model => model.Description, new { @class = "textbox" })
-
+            @Html.ValidationSummary(true, "", new { @class = "text-danger-summary" })
             <div>
+                <div class="div_flex">
+                    @Html.LabelFor(f => f.FeedbackTopic, new { @class = "label_float" })
+                    @Html.ValidationMessageFor(f => f.FeedbackTopic, "", new { @class = "text-danger" })
+                </div>
+                @Html.EnumDropDownListFor(f => f.FeedbackTopic, "Select Topic", new { @class = "textbox" })
+
+                <div class="div_flex">
+                    @Html.LabelFor(f => f.Description, htmlAttributes: new { @class = "label_float" })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+                @Html.TextAreaFor(model => model.Description, new { @class = "textbox" })
+
                 <div>
-                    <input type="submit" value="Submit" class="submit" />
+                    <div>
+                        <input type="submit" value="Submit" class="submit" />
+                    </div>
                 </div>
             </div>
-        </div>        
-    }
-</panel>
-
+        }
+    </panel>
+}
 

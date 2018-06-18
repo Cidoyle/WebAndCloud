@@ -1,0 +1,23 @@
+﻿@using System.Xml
+@{
+    ViewBag.Title = "DisplayFeedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="line1 headline">Feedback</h1>
+
+@foreach (XmlNode node in (XmlNodeList)ViewBag.List)
+{
+    <div class="feedback_container">
+        <div class="rightmargin">
+            <div class="feedback_header">
+                <div><h1>@node["FeedbackTopic"].InnerText</h1></div>
+                <div><h2>12/03/2015</h2></div>
+            </div>
+            <div>
+                <p class="feedback_desc">"@node["Description"].InnerText"</p>
+            </div>
+        </div>
+        <img class="feedback_image" src="~/Content/Images/blank_profile.png" alt="blank_profile">
+    </div>
+}

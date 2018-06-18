@@ -1,81 +1,84 @@
 ﻿@model WebAndCloudCA.Models.Booking
 
 @{
-    ViewBag.Title = "Booking";
+                /**/
+
+                ViewBag.Title = "Booking";
 }
 
-<nav class="account_nav">
-    <ul class="container">
-        <li>@Html.ActionLink("Book A Room", "Booking", "Booking")</li>
-        <li>@Html.ActionLink("Account Details", "AccountDetails", "AccountDetails")</li>
-        <li>@Html.ActionLink("Booking History", "BookingDetails", "BookingDetails")</li>
-        <li>@Html.ActionLink("Feedback", "Index", "Feedback")</li>
-    </ul>
-</nav>
+
 
 @if (Session["name"] != null)
 {
-<panel class="form">
-    @using (Html.BeginForm("Booking", "Booking", FormMethod.Post))
-    {
-        @Html.AntiForgeryToken()    
+    <nav class="account_nav">
+        <ul class="container">
+            <li>@Html.ActionLink("Book A Room", "Booking", "Booking")</li>
+            <li>@Html.ActionLink("Account Details", "AccountDetails", "AccountDetails")</li>
+            <li>@Html.ActionLink("Booking History", "BookingDetails", "BookingDetails")</li>
+            <li>@Html.ActionLink("Feedback", "Index", "Feedback")</li>
+        </ul>
+    </nav>
 
-        <h2>Book A Room</h2>
+    <panel class="form">
+        @using (Html.BeginForm("Booking", "Booking", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <h2>Book A Room</h2>
 
 
-        @ViewBag.Message
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div>
-            @*<div class="div_flex">
-                @Html.DisplayNameFor(b => b.Guest.Name)
-                @Session["fname"]  @Session["lname"]
-                @Html.ValidationMessageFor(b => b.Guest.GuestId, "", new { @class = "text-danger" })
-            </div>*@
-
+            @ViewBag.Message
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div>
-                <p>                    
-                    @Html.HiddenFor(b => b.Room.RoomId)
+                @*<div class="div_flex">
+                        @Html.DisplayNameFor(b => b.Guest.Name)
+                        @Session["fname"]  @Session["lname"]
+                        @Html.ValidationMessageFor(b => b.Guest.GuestId, "", new { @class = "text-danger" })
+                    </div>*@
+
+                <div>
+                    <p>
+                        @Html.HiddenFor(b => b.Room.RoomId)
+                    </p>
+                </div>
+                <p>
+                    <div class="div_flex">
+                        @Html.DisplayNameFor(b => b.Room.RoomAddress)
+                        @Html.DisplayFor(b => b.Room.RoomAddress, new { htmlAttributes = new { @class = "textbox" } })
+                        @Session["roomAddress"]
+                    </div>
                 </p>
-            </div>
-            <p>
+                <p>
+                    <div class="div_flex">
+                        @Html.DisplayNameFor(b => b.Room.Price)
+                        @Html.DisplayFor(b => b.Room.Price, new { htmlAttributes = new { @class = "textbox" } })
+                        @Session["RoomPrice"]
+                    </div>
+                </p>
+
                 <div class="div_flex">
-                    @Html.DisplayNameFor(b => b.Room.RoomAddress)
-                    @Html.DisplayFor(b => b.Room.RoomAddress, new { htmlAttributes = new { @class = "textbox" } })
-                    @Session["roomAddress"]
+                    @Html.LabelFor(b => b.ArrivalDate)
+                    @Html.ValidationMessageFor(b => b.ArrivalDate, "", new { @class = "text-danger" })
                 </div>
-            </p>
-            <p>
+                @Html.EditorFor(b => b.ArrivalDate, new { htmlAttributes = new { @class = "textbox" } })
+
                 <div class="div_flex">
-                    @Html.DisplayNameFor(b => b.Room.Price)
-                    @Html.DisplayFor(b => b.Room.Price, new { htmlAttributes = new { @class = "textbox" } })
-                    @Session["RoomPrice"]
+                    @Html.LabelFor(b => b.DepartureDate)
+                    @Html.ValidationMessageFor(b => b.DepartureDate, "", new { @class = "text-danger" })
                 </div>
-            </p>
+                @Html.EditorFor(b => b.DepartureDate, new { htmlAttributes = new { @class = "textbox" } })
 
-            <div class="div_flex">
-                @Html.LabelFor(b => b.ArrivalDate)
-                @Html.ValidationMessageFor(b => b.ArrivalDate, "", new { @class = "text-danger" })
-            </div>
-            @Html.EditorFor(b => b.ArrivalDate, new { htmlAttributes = new { @class = "textbox" } })
+                <div class="div_flex">
+                    @Html.LabelFor(b => b.NumberOfGuests)
+                    @Html.ValidationMessageFor(b => b.NumberOfGuests, "", new { @class = "text-danger" })
+                </div>
+                @Html.EditorFor(b => b.NumberOfGuests, new { htmlAttributes = new { @class = "textbox", @type = "number", @min = "1", @max = "4" } })
 
-            <div class="div_flex">
-                @Html.LabelFor(b => b.DepartureDate)
-                @Html.ValidationMessageFor(b => b.DepartureDate, "", new { @class = "text-danger" })
+                <div>
+                    <input type="submit" value="Book Now" class="submit" />
+                </div>
             </div>
-            @Html.EditorFor(b => b.DepartureDate, new { htmlAttributes = new { @class = "textbox" } })
-            
-            <div class="div_flex">
-                @Html.LabelFor(b => b.NumberOfGuests)
-                @Html.ValidationMessageFor(b => b.NumberOfGuests, "", new { @class = "text-danger" })
-            </div>
-                @Html.EditorFor(b => b.NumberOfGuests, new { htmlAttributes = new { @class = "textbox", @type = "number", @min = "1", @max = "4"} })
-
-            <div>
-                <input type="submit" value="Book Now" class="submit" />
-            </div>
-        </div>
-    }
-</panel>
+        }
+    </panel>
 }
 
-       
